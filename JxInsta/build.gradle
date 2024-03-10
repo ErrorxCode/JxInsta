@@ -12,8 +12,8 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = "com.errorxcode"
-            artifactId = "JxInsta"
-            version = "v1.0-beta"
+            artifactId = "jxinsta"
+            version = System.getenv("LATEST_VERSION")
         }
     }
     repositories {
