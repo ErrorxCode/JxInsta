@@ -10,7 +10,12 @@ name: Gradle Package
 on:
   release:
     types: [created]
-
+    
+env:
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        LATEST_VERSION: ${{ github.event.release.tag_name }}
+        
 jobs:
   build:
 
@@ -26,6 +31,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'oracle'
+        
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
@@ -33,11 +39,7 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew builds
 
     - name: Publish to GitHub Packages
       run: ./gradlew publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        LATEST_VERSION: ${{ github.event.release.tag_name }}
