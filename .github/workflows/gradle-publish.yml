@@ -40,3 +40,4 @@ jobs:
       env:
         USERNAME: ${{ github.actor }}
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        LATEST_VERSION: ${{ github.event.release.tag_name }}
