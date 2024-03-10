@@ -12,13 +12,12 @@ on:
     types: [created]
     
 env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        LATEST_VERSION: ${{ github.event.release.tag_name }}
+  USERNAME: ${{ github.actor }}
+  TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  LATEST_VERSION: ${{ github.event.release.tag_name }}
         
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,7 +38,7 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Build with Gradle
-      run: ./gradlew builds
+      run: ./gradlew build
 
     - name: Publish to GitHub Packages
       run: ./gradlew publish
