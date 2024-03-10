@@ -1,10 +1,31 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.errorxcode"
+            artifactId = "JxInsta"
+            version = "v1.0-beta"
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/ErrorxCode/JxInsta"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 
 dependencies {
