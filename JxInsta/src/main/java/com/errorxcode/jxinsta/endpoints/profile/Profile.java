@@ -32,6 +32,7 @@ import port.org.json.JSONObject;
 public class Profile {
     protected final AuthInfo authInfo;
     public String posts_end_cursor;
+    private String nextPageCursor;
     public String username;
     public long pk;
     public String full_name;
@@ -146,17 +147,17 @@ public class Profile {
     }
 
     /**
-     * Get the followers of the user
+     * Get the followers of the user. The method is auto paginated
      * @param count number of followers to get
-     * @param nextCursor next cursor of the page
      * @return list of followers
      * @throws IOException if there's an error in the network
      * @throws InstagramException if there's an error in the Instagram API
      */
-    public List<String> getFollowers(int count,@Nullable String nextCursor) throws IOException, InstagramException {
-        var req = Utils.createGetRequest("friendships/" + pk + "/followers/?count=" + count + "&maxId=" + nextCursor,authInfo);
+    public List<String> getFollowers(int count) throws IOException, InstagramException {
+        var req = Utils.createGetRequest("friendships/" + pk + "/followers/?count=" + count + "&maxId=" + nextPageCursor,authInfo);
         try (var response = Utils.call(req,authInfo)){
             var json = new JSONObject(response.body().string());
+            nextPageCursor = json.getString("next_max_id");
             var list = new ArrayList<String>();
             var users = json.getJSONArray("users");
             for (int i = 0; i < users.length(); i++) {
@@ -167,17 +168,17 @@ public class Profile {
     }
 
     /**
-     * Get the followings of the user
+     * Get the followings of the user. The method is auto paginated
      * @param count number of followings to get
-     * @param nextCursor next cursor of the page for pagination
      * @return list of followings
      * @throws IOException if there's an error in the network
      * @throws InstagramException if there's an error in the Instagram API
      */
-    public List<String> getFollowings(int count,@Nullable String nextCursor) throws IOException, InstagramException {
-        var req = Utils.createGetRequest("friendships/" + pk + "/following/?count=" + count + "&maxId=" + nextCursor,authInfo);
+    public List<String> getFollowings(int count) throws IOException, InstagramException {
+        var req = Utils.createGetRequest("friendships/" + pk + "/following/?count=" + count + "&maxId=" + nextPageCursor,authInfo);
         try (var response = Utils.call(req,authInfo)){
             var json = new JSONObject(response.body().string());
+            nextPageCursor = json.getString("next_max_id");
             var list = new ArrayList<String>();
             var users = json.getJSONArray("users");
             for (int i = 0; i < users.length(); i++) {

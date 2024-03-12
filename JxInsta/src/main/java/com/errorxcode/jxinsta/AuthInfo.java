@@ -9,22 +9,11 @@ public class AuthInfo {
     public String authorization;
     public JxInsta.LoginType loginType;
 
-    public static AuthInfo forMobile(@NotNull String bearerToken) {
+    protected static AuthInfo forMobile(@NotNull String bearerToken) {
         var info = new AuthInfo();
         info.token = bearerToken;
         info.authorization = bearerToken;
         info.loginType = JxInsta.LoginType.APP_AUTHENTICATION;
         return info;
-    }
-
-    @Override
-    public String toString() {
-        return "AuthInfo{" +
-                "crsf='" + crsf + '\'' +
-                ", token='" + token + '\'' +
-                ", cookie='" + cookie + '\'' +
-                ", authorization='" + authorization + '\'' +
-                ", loginType=" + loginType +
-                '}';
     }
 }
