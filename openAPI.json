@@ -1,0 +1,2685 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Instagram private API",
+    "description": "This is the collection of instagram private api which they use in the web.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.instagram.com"
+    },
+    {
+      "url": "https://i.instagram.com"
+    },
+    {
+      "url": "https://rupload.facebook.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Web",
+      "description": "These endpints are only supported by web"
+    },
+    {
+      "name": "Mobile",
+      "description": "These endpoints are only suppored by the mobile"
+    },
+    {
+      "name": "Public",
+      "description": "This folder contains all the public accessable APIs that do not require authentication"
+    }
+  ],
+  "paths": {
+    "/web/search/topsearch/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Web search",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYfkMo2jbpphsYrxLOeAAv4wjSbimhCfnhFWxFGzUA; rur=\"PRN\\05460043820096\\0541740426412:01f7538e9c6b05d1aea04950b2f9c1455dd2a8d4e4db3bddc11536e7cc4a41ad5d71214a\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "context",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "blended"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "x0.rahil"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/feed/reels_media/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Get story",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYfkMo2jbpphsYrxLOeAAv4wjSbimhCfnhFWxFGzUA; rur=\"PRN\\05460043820096\\0541740426412:01f7538e9c6b05d1aea04950b2f9c1455dd2a8d4e4db3bddc11536e7cc4a41ad5d71214a\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "reel_ids",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "myself",
+            "example": "58236085766"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/web/likes/{id}/{action}/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "like/unlike",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; rur=\"EAG\\05460043820096\\0541740640755:01f72b995e1c36bfcfb480de4b4bf008a5dc6291c4198606f836f05b61e477eade14f925\"; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcIhrovhN8XtO8246mvPPXzXIfMuzzRKgoZ7IBfSg"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "JG8PKjDFvTn7aSRQd6JNvE0CXsa9gUlN"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "The media id of the post",
+            "example": "3207678538101092614"
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Either \"like\" or \"unlike\"",
+            "example": "unlike"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/graphql/query/": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Highlights",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; csrftoken=4wbyXFZejFtapygD4gtbGY8U9MW3mmKW; dpr=1.25; shbid=\"18008\\05458236085766\\0541734082821:01f7cfd57494b23ac27228d7f7443220463bdccd1bc8dd3cb860096d9014e47c97789cf9\"; shbts=\"1702546821\\05458236085766\\0541734082821:01f725540ab995b0647f45621501ea45eb17584f215866b011d86211db74c24bbf357cf8\"; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; sessionid=58236085766%3AFmxvuyhTfy1cNW%3A16%3AAYedaRpmzyvrG0sA7K2hlaqM4Ysk5JStmYN-iR3Gmw; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; rur=\"CCO\\05458236085766\\0541734268936:01f7d0c2a4d96c65e5067aa693ca545bea789b961b5f6333426dad963f55c16f65d2b06e\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 219.0.0.12.117"
+          },
+          {
+            "name": "query_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "9957820854288654"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "58236085766"
+          },
+          {
+            "name": "include_highlight_reels",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/web/comments/{mediaId}/add/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Comment",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "comment_text": {
+                    "type": "string",
+                    "example": "<3"
+                  },
+                  "replied_to_comment_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; ds_user_id=58236085766; csrftoken=yC6O6erMYDhtsysqrWMlJom77Bx8PQoE; sessionid=58236085766%3AvcnHUqjA1GYqCi%3A3%3AAYcNbj1w0yO73Wws_boEq8lcnE0wNTH-bYmq7gg09Q; rur=\"CCO\\05458236085766\\0541740828993:01f75adb9912b3f3ee2b788ead299e4a1d693ad77ba57eee40ba0345aee674e859bec872\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "8uX45ZRaoon26bwQwiuLTd"
+          },
+          {
+            "name": "mediaId",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3308432632861508921"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bloks/apps/com.instagram.challenge.navigation.take_challenge/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Challenge automation",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "challenge_context": {
+                    "type": "string",
+                    "example": "Af7ssjGv8kj8qRyRJ5z1gibfuzrAkATYPs62FmYyleX4vKpAvQmZQrN4gfg1vTl2AkV7zzAC5DU7P3xerLbdMsINw6zlOMnpiQaGqPFxfQBinzW2NJs-T_bw-555SpUCWNwGVeKSIdSnnwn6Hzaj-RSSWS9MKbbH2CU"
+                  },
+                  "has_follow_up_screens": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "nest_data_manifest": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYeb3Vj92vIiXrU2aopWjX1a2ib4EG3MsngJVZanqg; rur=\"NHA\\05460043820096\\0541740578435:01f712ed36d95939d90bd5274618c69ac96d0b340d532c0457ec12dac650eaf80895b4cc\""
+          },
+          {
+            "name": "origin",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://www.instagram.com"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110 Android"
+          },
+          {
+            "name": "x-bloks-version-id",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "9070fce64f74d63202e5dfe00fdb5c909aa2084d60561fb400925c6ec764255b"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/web/comments/{mediaId}/delete/{commentId}/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Comment delete",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; rur=\"EAG\\05460043820096\\0541740640755:01f72b995e1c36bfcfb480de4b4bf008a5dc6291c4198606f836f05b61e477eade14f925\"; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcIhrovhN8XtO8246mvPPXzXIfMuzzRKgoZ7IBfSg"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "JG8PKjDFvTn7aSRQd6JNvE0CXsa9gUlN"
+          },
+          {
+            "name": "mediaId",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3308432632861508921"
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "18262264687228560"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/web/comments/{action}/18095784040393533/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Comment like",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; rur=\"EAG\\05460043820096\\0541740640755:01f72b995e1c36bfcfb480de4b4bf008a5dc6291c4198606f836f05b61e477eade14f925\"; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcIhrovhN8XtO8246mvPPXzXIfMuzzRKgoZ7IBfSg"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "JG8PKjDFvTn7aSRQd6JNvE0CXsa9gUlN"
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "unlike"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/configure/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Post photo",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "archive_only": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "caption": {
+                    "type": "string",
+                    "example": "Heaven on earth :)"
+                  },
+                  "clips_share_preview_to_feed": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "disable_comments": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "disable_oa_reuse": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "igtv_share_preview_to_feed": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "is_meta_only_post": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "is_unified_video": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "like_and_view_counts_disabled": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "source_type": {
+                    "type": "string",
+                    "example": "library"
+                  },
+                  "upload_id": {
+                    "type": "integer",
+                    "example": "1120"
+                  },
+                  "video_subtitles_enabled": {
+                    "type": "integer",
+                    "example": "0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=58236085766; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; csrftoken=fPznsBQmfcVZgkhf72MGsnLGlOuGs8MW; sessionid=58236085766%3AeHBPK89iCxFbyX%3A4%3AAYeka0rHiHvo2UlIZ4-iLE3Mw152YDvsx0QnDnKIdw; rur=\"CCO\\05458236085766\\0541740860492:01f706ec3ec6bee672eb278b9fd7d1e2dc30f176edcb41a9d0b275003837fbc91083a796\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "uEbg8nUsfLfJQzyYePmTvcc4Sdt5aowB"
+          },
+          {
+            "name": "x-ig-app-id",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "936619743392459"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/threads/{thread_id}/": {
+      "get": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Thread/Messages",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQXl2MXVaUWFvUzk2UFRLJTNBMjUlM0FBWWRZTEVnb1FOVlp6TnVkOW92UGJHRzB3eFRfLW9RX0dTS1UwNkQ5Y1EifQ=="
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (34/14; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "visual_message_return_type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Constant",
+            "example": "unseen"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Limit of the messages you want to get with the thread",
+            "example": "2"
+          },
+          {
+            "name": "seq_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "40065"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "older"
+          },
+          {
+            "name": "thread_id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ID of the thread you want to retrive",
+            "example": "340282366841710301244276126318159852821"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/threads/broadcast/text/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Send message",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "example": "send_item"
+                  },
+                  "is_x_transport_forward": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "is_shh_mode": {
+                    "type": "integer",
+                    "example": "0"
+                  },
+                  "send_silently": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "recipient_users": {
+                    "type": "string",
+                    "description": "The JSON array of the users pk whome you want to send message. You can use thread_ids:[THREAD_ID] in place of this too.",
+                    "example": "[58236085766]"
+                  },
+                  "send_attribution": {
+                    "type": "string",
+                    "example": "message_button"
+                  },
+                  "client_context": {
+                    "type": "integer",
+                    "example": "666656"
+                  },
+                  "text": {
+                    "type": "string",
+                    "example": "TESTx01"
+                  },
+                  "thread_ids": {
+                    "type": "string",
+                    "example": "[113298920065075]"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/feed/timeline/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Feed mobile",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "has_camera_permission": {
+                    "type": "string",
+                    "example": " 0"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "example": " pagination"
+                  },
+                  "battery_level": {
+                    "type": "string",
+                    "example": " 67"
+                  },
+                  "timezone_offset": {
+                    "type": "string",
+                    "example": " 19800"
+                  },
+                  "device_id": {
+                    "type": "string",
+                    "example": " de01bbe6-c663-454a-bc7b-822829d98267"
+                  },
+                  "request_id": {
+                    "type": "string",
+                    "example": " d6ec2505-c0fa-4acb-b4fc-34dd2fac32c6"
+                  },
+                  "is_pull_to_refresh": {
+                    "type": "string",
+                    "example": " 0"
+                  },
+                  "_uuid": {
+                    "type": "string",
+                    "example": " de01bbe6-c663-454a-bc7b-822829d98267"
+                  },
+                  "panavision_mode": {
+                    "type": "string",
+                    "example": " none"
+                  },
+                  "push_disabled": {
+                    "type": "string",
+                    "example": " true"
+                  },
+                  "is_charging": {
+                    "type": "string",
+                    "example": " 0"
+                  },
+                  "is_dark_mode": {
+                    "type": "string",
+                    "example": " 1"
+                  },
+                  "will_sound_on": {
+                    "type": "string",
+                    "example": " 0"
+                  },
+                  "session_id": {
+                    "type": "string",
+                    "example": " 3cc0aacf-259a-4368-ad1b-e638a5a2a6ec"
+                  },
+                  "bloks_versioning_id": {
+                    "type": "string",
+                    "example": " 8dab28e76d3286a104a7f1c9e0c632386603a488cf584c9b49161c2f5182fe07"
+                  },
+                  "max_id": {
+                    "type": "string",
+                    "description": "next max id from the previous request. The cursor after which you want to fetch the feet.",
+                    "example": "KCEASsCvWZOLwSyxSgQFEh_CLNafNOIdnsEsvD033tDWwSwWurScpPBiRgI5BCEyKNECAAMUtUauhMEshT-lD4MrnSyGaDdQf-DBLIXLhqbF8LssDI6HgL1twSyN-MsY5US_LBL4vFb0FMEsFm0k1-gguSybiUiuuu68LB3ghkj9aMEsH80m7gfAnSwgVgbqcALCLCIvN2530sEsIggmEzDEuSwmNiyeb5S7LKsgJ0pnWKAsLTC-oToOqCyxSgQFEh_CLDVwPamev6csNR0kEfd4pSy8PTfe0NbBLD5EhQ971a4swOC9VJ0xwSzErAQOM07BLEWctOZF4cAsyACH0jr5uyxKwK9Zk4vBLM18tK4Op8EszoA-6N-8pyxOTb1feQLCLE5rB3XnqMAs0VGl7V02tyzURYfkMvvALNafNOIdnsEsVis0NDKswSzfhbYkW5bALOslSy9tM78sbss7qeYyvixx0weNjy6tLHKWNMBiBMEs8wgwKyy8kCz26Te83tDBLAA="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTgyMzYwODU3NjYiLCJzZXNzaW9uaWQiOiI1ODIzNjA4NTc2NiUzQWtNZUpJaVdtT1g5T1lTJTNBMTklM0FBWWYyNWVuVTFHNlBpdXgtaU1PV1dTdE1DT2kzejZmNGM3c0dIaXNxSEEifQ=="
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
+          {
+            "name": "accept-encoding",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "gzip, deflate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/threads/{thread}/items/{item}/seen/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Mark seen",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "thread",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "340282366841710301244276126318159852821"
+          },
+          {
+            "name": "item",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "31532606201996153050613849727696896"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/messenger_image/{name}": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Upload image",
+        "requestBody": {
+          "content": {
+            "text/plain": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-entity-length",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Size of the image in bytes, if known",
+            "example": "308663"
+          },
+          {
+            "name": "x-entity-name",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name for the upload. Must be same as the url perameter",
+            "example": "x12"
+          },
+          {
+            "name": "x-entity-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "image/jpeg"
+          },
+          {
+            "name": "image_type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "FILE_ATTACHMENT"
+          },
+          {
+            "name": "offset",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Any image name",
+            "example": "x12"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/threads/broadcast/photo_attachment/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Send image",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Constact",
+                    "example": "send_item"
+                  },
+                  "is_x_transport_forward": {
+                    "type": "boolean",
+                    "description": "Waether to show forward tag",
+                    "example": "false"
+                  },
+                  "recipient_users": {
+                    "type": "string",
+                    "description": "JSON array of user pk. You can aslo use threads_id instead",
+                    "example": "[58236085766]"
+                  },
+                  "send_attribution": {
+                    "type": "string",
+                    "example": "direct_thread"
+                  },
+                  "attachment_fbid": {
+                    "type": "integer",
+                    "example": "913055513702013"
+                  },
+                  "allow_full_aspect_ratio": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "priority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "u=3"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notifications/badge/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Badge mobile",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "user_ids": {
+                    "type": "integer",
+                    "description": "Your user ID/PK",
+                    "example": "58236085766"
+                  },
+                  "device_id": {
+                    "type": "integer",
+                    "description": "Any random uid",
+                    "example": "0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "Mobile user agent",
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your bearer token",
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTgyMzYwODU3NjYiLCJzZXNzaW9uaWQiOiI1ODIzNjA4NTc2NiUzQUdhTDg0ZlBENUlNbk1OJTNBNyUzQUFZZUVYR245SlFWTTA1Vi1lUkpxTlFyY2ZDb0szeTlrN0EtMkp0aXo2QSJ9"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/news/inbox/": {
+      "get": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Notifications",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "Your cookie**",
+            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; dpr=1.25; shbid=\"18008\\05458236085766\\0541730308199:01f71110db8684e524a4e888c565f53fc6180d9e6e3cdf16f1024803e3bf7790c4e904d6\"; shbts=\"1698772199\\05458236085766\\0541730308199:01f7c733c29ad09c34d88e02f7e4fe216469d62991e02c4f6ad9bcee01a237b387974538\"; csrftoken=cLw6kJ7jpDW6lbrgs1bWxTbF08FTrm4f; sessionid=58236085766%3AIhzUg6MUEzg9zx%3A1%3AAYfJZHGJEVX3Mu-wRbKOF72a2cKDCD-NM2Vjoub50g; fbsr_124024574287414=RkI6lKiIS4xiyXuuIlzAbp4QWoTD5cJZRmBkJ5HCAUc.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFliQ2RyT1ZqREhiNjZiNUs0X1VUQlVzNkxUekR0X2xlbHZhWk42clpSMGx1ZXJISE94S0RkaThFV2N5RF9kT3c3SkI3ZUs0a04xZWhGcGx2NVRlc3JoTC14bXNtYTFuRjkxeml3UWlIMW13S09KTUNIT0R1WVBjWndWakcwaVdtRFVQeVY2bVlVOTkyZWdoc241ZlMxdmthem9NWWZTOV9fVzVORy1QNnVfdndoYm9wRkt6cDZjeW4wSFlPT05YTGtNS01YREtqT09CMDRUUkhkMWRoVUlTWS1URU0tNngyWFpCNnZSTk15M2tkSUxoYmhQMHRsS3p3SkRrVnlJUXBEVjFrdFdUdVJVVmxTWlVxNDNBMDQ4Zy1Vc1FSQ0M3RTRQcnJydm0wTkZzbGRMTlpiZ0NpZXlpVHFPa2JmdGEwUERwVEVtdFozbFItQmNOeXoyVlJTIiwib2F1dGhfdG9rZW4iOiJFQUFCd3pMaXhuallCTzhzUVpDOUVpVmpWN0d1RzVUV2l6cUJ6RU5tNnlaQ2pLR1M1OUVZZTk5QnpUMW85SEgzVWExdW5TT0p4SlVBVVkyczBZaG80Yk1qZmNSMmZ4WkJKNEpjaGtBU05EQkh5dFJjYkVkQnNTdFZZWFJ1YmE0QWVuSXNLTDNsdjJaQmt6SDV0TWkyTjRCNGFFbUd3dUtQekk1NmtMTlpDWkJFWGd6clhRNDhKM21mczhYajRRSjduaVViVEFaRCIsImFsZ29yaXRobSI6IkhNQUMtU0hBMjU2IiwiaXNzdWVkX2F0IjoxNjk4OTU3NDg5fQ; fbsr_124024574287414=RkI6lKiIS4xiyXuuIlzAbp4QWoTD5cJZRmBkJ5HCAUc.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFliQ2RyT1ZqREhiNjZiNUs0X1VUQlVzNkxUekR0X2xlbHZhWk42clpSMGx1ZXJISE94S0RkaThFV2N5RF9kT3c3SkI3ZUs0a04xZWhGcGx2NVRlc3JoTC14bXNtYTFuRjkxeml3UWlIMW13S09KTUNIT0R1WVBjWndWakcwaVdtRFVQeVY2bVlVOTkyZWdoc241ZlMxdmthem9NWWZTOV9fVzVORy1QNnVfdndoYm9wRkt6cDZjeW4wSFlPT05YTGtNS01YREtqT09CMDRUUkhkMWRoVUlTWS1URU0tNngyWFpCNnZSTk15M2tkSUxoYmhQMHRsS3p3SkRrVnlJUXBEVjFrdFdUdVJVVmxTWlVxNDNBMDQ4Zy1Vc1FSQ0M3RTRQcnJydm0wTkZzbGRMTlpiZ0NpZXlpVHFPa2JmdGEwUERwVEVtdFozbFItQmNOeXoyVlJTIiwib2F1dGhfdG9rZW4iOiJFQUFCd3pMaXhuallCTzhzUVpDOUVpVmpWN0d1RzVUV2l6cUJ6RU5tNnlaQ2pLR1M1OUVZZTk5QnpUMW85SEgzVWExdW5TT0p4SlVBVVkyczBZaG80Yk1qZmNSMmZ4WkJKNEpjaGtBU05EQkh5dFJjYkVkQnNTdFZZWFJ1YmE0QWVuSXNLTDNsdjJaQmt6SDV0TWkyTjRCNGFFbUd3dUtQekk1NmtMTlpDWkJFWGd6clhRNDhKM21mczhYajRRSjduaVViVEFaRCIsImFsZ29yaXRobSI6IkhNQUMtU0hBMjU2IiwiaXNzdWVkX2F0IjoxNjk4OTU3NDg5fQ; rur=\"CCO\\05458236085766\\0541730493496:01f71e6f141d10a2cfebceb480863034bbae1f1f4b1e61d4bed750332dac569cb329d54a\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "User agent for mobile",
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "mark_as_seen",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Waether to mark notification as seen or not",
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/configure_to_story/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Upload story",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "has_original_sound": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "configure_mode": {
+                    "type": "integer",
+                    "example": "1"
+                  },
+                  "creation_surface": {
+                    "type": "string",
+                    "example": "camera"
+                  },
+                  "capture_type": {
+                    "type": "string",
+                    "example": "normal"
+                  },
+                  "upload_id": {
+                    "type": "integer",
+                    "example": "55689"
+                  },
+                  "original_media_type": {
+                    "type": "string",
+                    "example": "photo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQXl2MXVaUWFvUzk2UFRLJTNBMjUlM0FBWWRZTEVnb1FOVlp6TnVkOW92UGJHRzB3eFRfLW9RX0dTS1UwNkQ5Y1EifQ=="
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (34/14; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/clips/discover/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Reels",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "seen_reels": {
+                    "type": "string",
+                    "example": "[{\"id\":\"3274968782109908313\"},{\"id\":\"3310293518427581099\"}]"
+                  },
+                  "max_id": {
+                    "type": "string",
+                    "example": "Gkay9bzCr7CD81rWqrvC0prD8Fu4xOir8aKsiluSopWroZH07VomwKnaiMBjFAg0AikIGAAaCBgNczoxOGUwMDhiNGE2MBQBGgYZDAA="
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQXl2MXVaUWFvUzk2UFRLJTNBMjUlM0FBWWRZTEVnb1FOVlp6TnVkOW92UGJHRzB3eFRfLW9RX0dTS1UwNkQ5Y1EifQ=="
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/threads/{thread}/hide/": {
+      "post": {
+        "tags": [
+          "Mobile"
+        ],
+        "summary": "Delete thread",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "should_move_future_requests_to_spam": {
+                    "type": "boolean",
+                    "example": "false"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQXl2MXVaUWFvUzk2UFRLJTNBMjUlM0FBWWRZTEVnb1FOVlp6TnVkOW92UGJHRzB3eFRfLW9RX0dTS1UwNkQ5Y1EifQ=="
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (34/14; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "thread",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "340282366841710300949128254114278090110"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/web_profile_info/": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "User info",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 219.0.0.12.117"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; csrftoken=4wbyXFZejFtapygD4gtbGY8U9MW3mmKW; dpr=1.25; shbid=\"18008\\05458236085766\\0541734082821:01f7cfd57494b23ac27228d7f7443220463bdccd1bc8dd3cb860096d9014e47c97789cf9\"; shbts=\"1702546821\\05458236085766\\0541734082821:01f725540ab995b0647f45621501ea45eb17584f215866b011d86211db74c24bbf357cf8\"; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; sessionid=58236085766%3AFmxvuyhTfy1cNW%3A16%3AAYedaRpmzyvrG0sA7K2hlaqM4Ysk5JStmYN-iR3Gmw; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; rur=\"CCO\\05458236085766\\0541734268936:01f7d0c2a4d96c65e5067aa693ca545bea789b961b5f6333426dad963f55c16f65d2b06e\""
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "followhub.bot_2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tags/logged_out_web_info/": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Hashtag info",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "tag_name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "gaza"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/graphql": {
+      "post": {
+        "tags": [
+          "Public"
+        ],
+        "summary": "Post info",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "lsd": {
+                    "type": "string",
+                    "description": "Important ! Should be same as the x-fb-lsd header",
+                    "example": "ErrorxCode"
+                  },
+                  "variables": {
+                    "type": "string",
+                    "description": "JSON object of :-\n1. Shortcode : The shortcode of thr post that is at the end of post url\n2. fetch_comment_count : Number of comment you wanna fetch with the post\n3. fetch_tagged_user_count : The number of users that are tagged in the post",
+                    "example": "{\n  \"shortcode\": \"C3m9HnNukV1\",\n  \"fetch_comment_count\": 2,\n  \"fetch_tagged_user_count\": 0\n}"
+                  },
+                  "doc_id": {
+                    "type": "integer",
+                    "example": "10015901848480474"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "sec-fetch-site",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "same-origin"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+          },
+          {
+            "name": "x-fb-lsd",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ErrorxCode"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/get_presence_active_now/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Get active status",
+        "parameters": [
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 237.0.0.14.102 Android (33/13; 440dpi; 1080x2262; Xiaomi/POCO; 22101320I; redwoodin; qcom; en_IN; 373310554)"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTgyMzYwODU3NjYiLCJzZXNzaW9uaWQiOiI1ODIzNjA4NTc2NiUzQUdhTDg0ZlBENUlNbk1OJTNBNyUzQUFZZUVYR245SlFWTTA1Vi1lUkpxTlFyY2ZDb0szeTlrN0EtMkp0aXo2QSJ9"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; dpr=1.25; csrftoken=4wbyXFZejFtapygD4gtbGY8U9MW3mmKW; sessionid=58236085766%3AFmxvuyhTfy1cNW%3A16%3AAYc1r-Ve2k_9nCWHGotkqqtrcEE1BWUdBGNhFOaWEQ; shbid=\"18008\\05458236085766\\0541731093227:01f7d2a1af6834f3bc0909b859d2876fb589d289beb83d3a2524f59d3c9f4c09b14c11d1\"; shbts=\"1699557227\\05458236085766\\0541731093227:01f7ebb77bd11cf54deb52e386e185fcb7d5c6446d8a4d8a628a7c5a7ddb19ad1e158639\"; fbsr_124024574287414=YdrVv305U5EipFAuSmSjuBxaPxjo78EGtl_ubPBTV0E.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRQTdOMlZQSC1VaWlVZ3JyeTNuTUFJUklMQmpENC1nRmZyX29jR3J4ODN4T1dkMTJ3cThGMjVmWG1tMThfMGFwYmdnOXJuRE5BYmhTQ2p1dHBQVS03YWkxSVRVa0tIUlhQcEdWSGVUMDlzSGxNUzZHZVp5alZMdGJpWGI0RWFTRzhKanplZmF4WVdkYXhsaW1NZXpkNU4zWENjcWlhSUFIWXFfbklmOWRPSWZJN3BSQWF1d2RsS3FvTTI4QjE2WlpndGJrZWlzZDZNNnp2ZFZPd3pzSXk2TWdVNlVmZ1NGSGVWOTFJc2ZUeXpDQUJsNUpfWUdJQldnY3gyN0hLWmJXZU9VWFZJRGJRcGkwWmY0TVJyRkJpZldEb0NNa0t1NDZIcVBhejRxUGFiZk5SWkNIWkFFdGZRYzdYZUxJdWpHTURXOGM4aWRPcmR2ajQtTXpQZnloQXdRIiwib2F1dGhfdG9rZW4iOiJFQUFCd3pMaXhuallCTzdaQlVuZ0czcVJGMkZMM2JiWXRZZ05LYXY1TmFCWkJSOGNXR2E0UUthRjJnYjE1MksyMWR4cFAxYnVqS053UGxqY2pDQllueW5lN0hPZXJhUk5ESDdib0htQ2pMM1YxWVpBTmVHVkF1ZFdqU0ZFNnJKamliUzNlazJmUUY4VEFiWkJDRVlVZ2dHYWJHZkhlcHlQWE50SlY5NjAzV3g4ODN2bFlZMVljMFhJNnVNRENaQ3VVSHR4WVpEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE2OTk1NTc1NTJ9; rur=\"LDC\\05458236085766\\0541731093552:01f71f4ef6244fb402994edf5d7c8cff00c22594e8bc2cb6a0f9a76daafc18f5b102ca45\""
+          },
+          {
+            "name": "recent_thread_limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of thread for which you want to know last active status. 0 if you only want to get online people",
+            "example": "0"
+          },
+          {
+            "name": "suggested_followers_limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of people for whome you want to know online status",
+            "example": "50"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/feed/reels_tray/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Stories",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "optional",
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "Your cookie",
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYfkMo2jbpphsYrxLOeAAv4wjSbimhCfnhFWxFGzUA; rur=\"PRN\\05460043820096\\0541740426412:01f7538e9c6b05d1aea04950b2f9c1455dd2a8d4e4db3bddc11536e7cc4a41ad5d71214a\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "Required**",
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "is_following_feed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/{user_pk}/following/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "User followings",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "**Your cookie here",
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; shbid=\"18008\\05458236085766\\0541739712407:01f7e81257875677f21889906a4b6913e88c7d68e1cad0d7db50ceddd57258507590126b\"; shbts=\"1708176407\\05458236085766\\0541739712407:01f74043d1437917e27c082ea480997e4c69dbe3587a8b9f5f39f6e80e479672357bd32c\"; dpr=1.25; csrftoken=kbE7ZHh05s29K2ubfF3NnpYLxEAxAnmE; ds_user_id=58236085766; sessionid=58236085766%3AvQ4Frfsm48KbgR%3A29%3AAYdhby-7AJGp1UGZiChGF-YRVbepqbJ_-MUuQCd1Bw; rur=\"CCO\\05458236085766\\0541739900054:01f7ffb5a4750a15198531f6596b7346275c66f2e5c97bda46f5835cbdbfe09430767bd7\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The number of followers you want to fetch",
+            "example": "150"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "User id of that person",
+            "example": "8520117425"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/{user}/followers/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "User followers",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your cookie here**",
+            "example": "csrftoken=FnJaJtCuwALUJ3tVPJaZRPYRkpqgZUiF;rur=\"CCO\\05460043820096\\0541740333241:01f743db0056eb6976a64beb84c0932a3ee64aff451ea69f3bc2d8ac8b8f37c0b713aaa1\";mid=ZdotNgABAAGGjRCYmh_hic7Pkft_;ds_user_id=60043820096;th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";ig_did=190691CF-AEA2-4B51-B3E4-6B90E27521EE;sessionid=60043820096%3AfsPKlUPUQ3z38d%3A21%3AAYcXuHl2Zs-mlZWv_DyWrKnK2_qKJoIVUT-CtzFXJA"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The number of users to return in one request",
+            "example": "15"
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "PK of the user",
+            "example": "8520117425"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{post_id}/likers/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "likers",
+        "parameters": [
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "csrftoken=FnJaJtCuwALUJ3tVPJaZRPYRkpqgZUiF;rur=\"CCO\\05460043820096\\0541740333241:01f743db0056eb6976a64beb84c0932a3ee64aff451ea69f3bc2d8ac8b8f37c0b713aaa1\";mid=ZdotNgABAAGGjRCYmh_hic7Pkft_;ds_user_id=60043820096;th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";ig_did=190691CF-AEA2-4B51-B3E4-6B90E27521EE;sessionid=60043820096%3AfsPKlUPUQ3z38d%3A21%3AAYcXuHl2Zs-mlZWv_DyWrKnK2_qKJoIVUT-CtzFXJA"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "post_id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3221879251589921812"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/direct_v2/inbox/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "list threads",
+        "parameters": [
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; ds_user_id=52834349844; csrftoken=qkR1s2Uf4tesXTltsoJH9gm0AfKCvmM8; sessionid=52834349844%3AFMRVaeuqcYbiBx%3A21%3AAYeP0Bb191n0JyN1P9csWDrqQu_Cu0vkDe1sR8eKcA; rur=\"CCO\\05452834349844\\0541741076350:01f7d0da7d695e011949a66919cbbf2a3e8f6e070b4464dddae3f11253a5f9b913395323\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110 Android"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "visual_message_return_type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "can be \"unseen\" or \"flagged\" or empty",
+            "example": "unseen"
+          },
+          {
+            "name": "thread_message_limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The number of messges you want to retirive per thread",
+            "example": "5"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Number of Thread you want to retrive",
+            "example": "2"
+          },
+          {
+            "name": "fetch_reason",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "manual_refresh"
+          },
+          {
+            "name": "folder",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Only for business accounts. 1 for Primary, 0 for general",
+            "example": "0"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "older"
+          },
+          {
+            "name": "fetch_reason",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "page_scroll"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/destroy/{user_pk}/": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Unfollow",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "container_module": {
+                    "type": "string",
+                    "example": "profile"
+                  },
+                  "user_id": {
+                    "type": "integer",
+                    "example": "59643570474"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "**Your session cookie"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110 Android"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "User id of the person",
+            "example": "59643570474"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/create/{user_pk}/": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Follow",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "**Your session cookie",
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=52834349844; shbid=\"2530\\05452834349844\\0541741200191:01f73fcdbc6ebb3345e1f3c192ef7ebfc0c3e722de65dc7e04123e47bfeeb36c197e7400\"; shbts=\"1709664191\\05452834349844\\0541741200191:01f743db3162b3bde69513ccc4ce6cd13e607712937d858e15ec41c1dbcc4bee06b214fa\"; csrftoken=Ri40yB94kr3vqjoFKDMIIuiND2EROom8; sessionid=52834349844%3AvOIDj5VtkaRwBC%3A7%3AAYeXFJ37LOk-33szPxBger13XwRze0tMYaIJSiQTcg; rur=\"CCO\\05452834349844\\0541741207600:01f78a12aa7603e80c4e21715753db8c70e4fc7c85f0eede6b675804161564091b6e6833\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0"
+          },
+          {
+            "name": "x-ig-app-id",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "936619743392459"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "z6yJjVmpUypZNuWwN5PJenOREn9YajhR"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "User id of the account you want to follow",
+            "example": "59643570474"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web/accounts/login/ajax/": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Login",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "enc_password": {
+                    "type": "string",
+                    "description": "Password in the format #PWD_INSTAGRAM_BROWSER:0:timestamp:password",
+                    "example": "#PWD_INSTAGRAM_BROWSER:0:1698957740:testpassword"
+                  },
+                  "optIntoOneTap": {
+                    "type": "boolean",
+                    "example": "false"
+                  },
+                  "queryParams": {
+                    "type": "string",
+                    "example": "{}"
+                  },
+                  "trustedDeviceRecords": {
+                    "type": "string",
+                    "example": "{}"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Username for login",
+                    "example": "followhub.bot_3"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "dpr=1.25; csrftoken=CvHCuWbWdJlnzXx4VFyDhIadqTZW2go7; mid=ZUQJeQALAAGz94FfN1CX1o8a75LH; ig_did=CC6165B3-6FC4-4B3B-A0A0-810F21A94A20; ig_nrcb=1; datr=eAlEZdmkdk56TjJo9cU8rYMo"
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110 Android"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "UQPOYgrMofiDubY098gUCq07WxxzDa3m"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{media_ID}/comments/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Comments",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcPAjbVat5tmJpMLw1JxZwk5mSn-X3plCMoDekraA; rur=\"CCO\\05460043820096\\0541740598055:01f7eaf740b4f6ab17f8976e8c196fa27c4f0c58e2dc9071f0a25b3b7cf03abfbe9f67b9\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "can_support_threading",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "permalink_enabled",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "media_ID",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3301942701032145072"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{mediaID}/info/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Post info",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcIhrovhN8XtO8246mvPPXzXIfMuzzRKgoZ7IBfSg; rur=\"EAG\\05460043820096\\0541740643155:01f72279f5158c8ad56c94b972d759cc0b396b1e25f88ae5afb4808769bc0295a783e9bf\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "mediaID",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3311799069949154893"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rupload_igphoto/{file_name}": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Upload",
+        "requestBody": {
+          "content": {
+            "text/plain": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "image/jpeg"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; ds_user_id=52834349844; csrftoken=qkR1s2Uf4tesXTltsoJH9gm0AfKCvmM8; sessionid=52834349844%3AFMRVaeuqcYbiBx%3A21%3AAYeP0Bb191n0JyN1P9csWDrqQu_Cu0vkDe1sR8eKcA; rur=\"CCO\\05452834349844\\0541741088720:01f7176ff14e426bf0b911c5fdbf8e4ca275964fcbf00123abe66d0b434e3983a6df6cea\""
+          },
+          {
+            "name": "offset",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "x-entity-length",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "308663"
+          },
+          {
+            "name": "x-entity-name",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "x128.2"
+          },
+          {
+            "name": "x-entity-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "image/jpeg"
+          },
+          {
+            "name": "x-instagram-rupload-params",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{\"media_type\":1,\"upload_id\":\"55689\",\"upload_media_height\":800,\"upload_media_width\":800}"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "file_name",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true,
+            "example": "x128.2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
