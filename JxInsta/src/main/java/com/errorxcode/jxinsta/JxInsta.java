@@ -84,6 +84,10 @@ public class JxInsta extends AuthInfo {
 
         var response = Utils.call(builder.build(), null);
         if (response.isSuccessful()) {
+            if (response.body().string().equals("{\"user\":true,\"authenticated\":false,\"status\":\"ok\"}"))
+                throw new InstagramException("Wrong password", InstagramException.Reasons.INVALID_CREDENTIAL);
+
+
             if (type == LoginType.WEB_AUTHENTICATION) {
                 cookie = Utils.extractCookie(response.headers("set-cookie"));
                 authorization = cookie;

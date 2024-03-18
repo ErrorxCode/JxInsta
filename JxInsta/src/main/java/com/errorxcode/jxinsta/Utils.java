@@ -90,14 +90,14 @@ public class Utils {
 
     protected static String getCrsf() throws IOException {
         Request request = new Request.Builder()
-                .url("https://instagram.com/login/")
+                .url("https://www.instagram.com/api/v1/web/login_page/")
                 .headers(Headers.of(Constants.BASE_HEADERS))
                 .addHeader("user-agent", Constants.WEB_USER_AGENT)
-                .method("GET",null)
+                .get()
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            return response.headers("set-cookie").get(0).split(";")[0].split("=")[1];
+            return response.headers("Set-cookie").get(0).split(";")[0].split("=")[1];
         }
     }
 
