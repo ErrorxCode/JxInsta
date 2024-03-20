@@ -46,6 +46,7 @@ Due to the outage of jitpack, the library cannot published. Therfore, you have t
 ```groovy
 dependencies {
     implementation files('libs/JxInsta-v1.0-beta.jar')
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.11' //skip if already implemented
 }
 ```
 
@@ -54,11 +55,18 @@ dependencies {
 ```XML
 <dependency>
     <groupId>com.sample</groupId>
-    <artifactId>sample</artifactId>
-    <version>1.0</version>
+    <artifactId>jxinsta</artifactId>
+    <version>v1.0-beta-2</version>
     <scope>system</scope>
-    <systemPath>${project.basedir}/lib/JxInsta-v1.0-beta.jar</systemPath>
+    <systemPath>${project.basedir}/lib/JxInsta-v1.0-beta-2.jar</systemPath>
 </dependency>
+
+<dependency>
+    <groupId>com.squareup.okhttp3</groupId>
+    <artifactId>okhttp</artifactId>
+    <version>5.0.0-alpha.11</version>
+</dependency>
+
 ```
 
 You can search on Google for more info on including local dependencies.
@@ -68,6 +76,7 @@ You can search on Google for more info on including local dependencies.
 -   [Instagram usage limits](https://www.linkedin.com/pulse/stay-within-boundaries-complete-breakdown-instagrams-cmscc/)
 - [Instagram daily limit](https://socialpros.co/instagram-daily-limits/#:~:text=Instagram's%20Daily%20Limits%20%E2%80%93%20Like,than%2030%20likes%20per%20hour)
 -   [API Policies](https://developers.facebook.com/devpolicy/)
+-   [About Instagram checkpoints and challenges](/Instagram+checkpoints.md)
 
 ## Its easy :)
 
