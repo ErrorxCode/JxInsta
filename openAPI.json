@@ -724,6 +724,622 @@
         }
       }
     },
+    "/rupload_igphoto/{file_name}": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Upload",
+        "requestBody": {
+          "content": {
+            "text/plain": {}
+          }
+        },
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "image/jpeg"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; ds_user_id=52834349844; csrftoken=qkR1s2Uf4tesXTltsoJH9gm0AfKCvmM8; sessionid=52834349844%3AFMRVaeuqcYbiBx%3A21%3AAYeP0Bb191n0JyN1P9csWDrqQu_Cu0vkDe1sR8eKcA; rur=\"CCO\\05452834349844\\0541741088720:01f7176ff14e426bf0b911c5fdbf8e4ca275964fcbf00123abe66d0b434e3983a6df6cea\""
+          },
+          {
+            "name": "offset",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "x-entity-length",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "308663"
+          },
+          {
+            "name": "x-entity-name",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "x128.2"
+          },
+          {
+            "name": "x-entity-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "image/jpeg"
+          },
+          {
+            "name": "x-instagram-rupload-params",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{\"media_type\":1,\"upload_id\":\"55689\",\"upload_media_height\":800,\"upload_media_width\":800}"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+          },
+          {
+            "name": "file_name",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true,
+            "example": "x128.2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/create/{user_pk}/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Follow",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "**Your session cookie",
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=eXzlHwQk7zPt2h7c2RDwhNtOry8hnJN4; sessionid=45911216802%3As72dUR1LhJ539F%3A20%3AAYciM1N3W5Atx-3iJfC5fG4dTgcdwNCHSZWoNA-huQ; rur=\"CCO\\05445911216802\\0541742830268:01f7a0ec7095c224e41c7d747886e7dde5c5609fb406015af2c4a2cb27c62685abcb72f0\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0"
+          },
+          {
+            "name": "x-ig-app-id",
+            "in": "header",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "936619743392459"
+          },
+          {
+            "name": "x-csrftoken",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "z6yJjVmpUypZNuWwN5PJenOREn9YajhR"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "User id of the account you want to follow",
+            "example": "59643570474"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/destroy/{user_pk}/": {
+      "post": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Unfollow",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "container_module": {
+                    "type": "string",
+                    "example": "profile"
+                  },
+                  "user_id": {
+                    "type": "integer",
+                    "example": "59643570474"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "content-type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "**Your session cookie",
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=ZZJVemfCE8in877pRBdVZxVJGtQ1ewI3; sessionid=45911216802%3Az6bsqkhxaU58Bo%3A5%3AAYf4e4-pF_H9WyQeSQoHia5f4ct0sFLYqw0uqjD3mA; rur=\"CCO\\05445911216802\\0541742830143:01f76c83a68e1a2efac283e44399f6c1c45a32d8e04f3ec59b9eefff3a0f023a768a7038\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Mozilla/5.0"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "therock",
+            "example": "232192182"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/feed/reels_tray/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Stories",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "optional",
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your cookie",
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=KnbiWMFyJb0dB3W0UTpWEWW8bDpFTvgZ; sessionid=45911216802%3AiIUDVK7jIF7tCI%3A1%3AAYeszS7rDiBtzNRLbXqTJ-WU6u1Y0oSei4Da3qzcMg; rur=\"VLL\\05445911216802\\0541742826654:01f785298b6c3b0f391f23f8d983b981ad3d7c9cc05f371cc6c2d978c187bb01f73d710c\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "description": "Required**",
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "is_following_feed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{post_id}/likers/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "likers",
+        "parameters": [
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=KnbiWMFyJb0dB3W0UTpWEWW8bDpFTvgZ; sessionid=45911216802%3AiIUDVK7jIF7tCI%3A1%3AAYeszS7rDiBtzNRLbXqTJ-WU6u1Y0oSei4Da3qzcMg; rur=\"VLL\\05445911216802\\0541742828308:01f7fe19506074830c8aad415eb9575077dc9fb7e6e61d9a82dd79800cff9c1dd0284b69\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "post_id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3221879251589921812"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{media_ID}/comments/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Comments",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=eXzlHwQk7zPt2h7c2RDwhNtOry8hnJN4; sessionid=45911216802%3As72dUR1LhJ539F%3A20%3AAYciM1N3W5Atx-3iJfC5fG4dTgcdwNCHSZWoNA-huQ; rur=\"CCO\\05445911216802\\0541742830268:01f7a0ec7095c224e41c7d747886e7dde5c5609fb406015af2c4a2cb27c62685abcb72f0\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "can_support_threading",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "permalink_enabled",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "media_ID",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3301942701032145072"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{mediaID}/info/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "Post info",
+        "parameters": [
+          {
+            "name": "authority",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "www.instagram.com"
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=eXzlHwQk7zPt2h7c2RDwhNtOry8hnJN4; sessionid=45911216802%3As72dUR1LhJ539F%3A20%3AAYciM1N3W5Atx-3iJfC5fG4dTgcdwNCHSZWoNA-huQ; rur=\"CCO\\05445911216802\\0541742830268:01f7a0ec7095c224e41c7d747886e7dde5c5609fb406015af2c4a2cb27c62685abcb72f0\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "mediaID",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "3311799069949154893"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/{user}/followers/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "User followers",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your cookie here**",
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=qiucMtFnng6tpzGy4i7lCX9bysjUdHqs; sessionid=45911216802%3Aaj8u7gYSBfvbVQ%3A14%3AAYdg3i0Y9K1wJaS8YdmweQu5FAKWhFOtFaSZGFedSg; rur=\"CCO\\05445911216802\\0541742831098:01f798f1e119844b9050f9c5224012d92f22b83f4148b14256582dfa735191fa16122722\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The number of users to return in one request",
+            "example": "5"
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "example": "232192182"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/friendships/{user_pk}/following/": {
+      "get": {
+        "tags": [
+          "Web"
+        ],
+        "summary": "User followings",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "cookie",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "description": "**Your cookie here",
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=qiucMtFnng6tpzGy4i7lCX9bysjUdHqs; sessionid=45911216802%3Aaj8u7gYSBfvbVQ%3A14%3AAYdg3i0Y9K1wJaS8YdmweQu5FAKWhFOtFaSZGFedSg; rur=\"CCO\\05445911216802\\0541742831098:01f798f1e119844b9050f9c5224012d92f22b83f4148b14256582dfa735191fa16122722\""
+          },
+          {
+            "name": "user-agent",
+            "in": "header",
+            "schema": {
+              "type": "number"
+            },
+            "example": "Instagram 244.0.0.17.110"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The number of followers you want to fetch",
+            "example": "150"
+          },
+          {
+            "name": "user_pk",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "User id of that person",
+            "example": "8520117425"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
     "/api/v1/direct_v2/threads/{thread_id}/": {
       "get": {
         "tags": [
@@ -1642,9 +2258,9 @@
             "name": "cookie",
             "in": "header",
             "schema": {
-              "type": "number"
+              "type": "string"
             },
-            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; csrftoken=4wbyXFZejFtapygD4gtbGY8U9MW3mmKW; dpr=1.25; shbid=\"18008\\05458236085766\\0541734082821:01f7cfd57494b23ac27228d7f7443220463bdccd1bc8dd3cb860096d9014e47c97789cf9\"; shbts=\"1702546821\\05458236085766\\0541734082821:01f725540ab995b0647f45621501ea45eb17584f215866b011d86211db74c24bbf357cf8\"; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; sessionid=58236085766%3AFmxvuyhTfy1cNW%3A16%3AAYedaRpmzyvrG0sA7K2hlaqM4Ysk5JStmYN-iR3Gmw; fbsr_124024574287414=mPuUb-ga7j9Cc8t5XFTxVZaf7N9GJmlqgKx-6YKO7bw.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRRFU1TjRyYmVTX3BZWnpqal9pZjVwbVJhaHJEUk9hMVhlNGFQQVJvd0lRNU5odWs3S3hKTUY0X3JBdC1UV3hrdlJUT3lhQk95WHAzbE9zN05DWGFiUFFxMmt3X21PT0xWUGR1TUMxeDE0RXNYUDlha3k3bmE0bXZUQ3ZmNFo4cXQzRHJRWTIzajNuT0lqSS1ERmRoaVN0WjY3Z1Z4THo4MkFvNFBVUHJDRGdtZThHUUxxVGdnZ1p6TnVDNllGWkVqWUI5TTRDT3F0S2RlSWgxSE5DeGhKVE5WdHQzRGtnVFBFeTU0R2ltYzgtV3VlU28tNzVCQU1uRFVUZ3B5TDdzUGtSYmF0eXRmZHl5Rmt4Wk8yck1QQk9JU29xWlUxOGk2Z3pTLWpUbm1abDd5Q1ZTZUg1dGRpMl9oQ0dOWi13M2FMbjYxXzlFQ1lFcFFUOXlXS0lCUlFuTE5DTkZVMXlYb1cyZzFXaVMwSDR2QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQk8yNlJaQWZwRjh6a0dBQjIxQ0NXZjY5MGpPajUzTzRVS2x3bTI2cHBPTU94YWdjdU1LMkdhVmVSWkFONWc3WkFJc1JrWWFvcGU3T1E3SGwxcWREc3RpcUdKNjN4U3E5MmFsclpDZnFvUTlaQ2l2RWdQVUszSVd1ZkgwMmlaQ2o5SnRObFA2ejd6WkJwUkdEZENtVENXVWNkNUY3NTVSdDE0UVBGTmgwZktUMmtUaERialVGVHRxUEhqa1pEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE3MDI3MzI5MDB9; rur=\"CCO\\05458236085766\\0541734268936:01f7d0c2a4d96c65e5067aa693ca545bea789b961b5f6333426dad963f55c16f65d2b06e\""
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=qiucMtFnng6tpzGy4i7lCX9bysjUdHqs; sessionid=45911216802%3Aaj8u7gYSBfvbVQ%3A14%3AAYdg3i0Y9K1wJaS8YdmweQu5FAKWhFOtFaSZGFedSg; rur=\"CCO\\05445911216802\\0541742831098:01f798f1e119844b9050f9c5224012d92f22b83f4148b14256582dfa735191fa16122722\""
           },
           {
             "name": "username",
@@ -1652,7 +2268,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "followhub.bot_2"
+            "example": "therock"
           }
         ],
         "responses": {
@@ -1808,7 +2424,7 @@
     "/api/v1/direct_v2/get_presence_active_now/": {
       "get": {
         "tags": [
-          "default"
+          "Public"
         ],
         "summary": "Get active status",
         "parameters": [
@@ -1826,15 +2442,15 @@
             "schema": {
               "type": "string"
             },
-            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTgyMzYwODU3NjYiLCJzZXNzaW9uaWQiOiI1ODIzNjA4NTc2NiUzQUdhTDg0ZlBENUlNbk1OJTNBNyUzQUFZZUVYR245SlFWTTA1Vi1lUkpxTlFyY2ZDb0szeTlrN0EtMkp0aXo2QSJ9"
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQUthNDJjVmxKUU5ITGgzJTNBMyUzQUFZZWJXMUpOUzlBYWhiWDZrUXkwSzlIaF9LME5UMnpWeEdjd2w5N3lLQSJ9"
           },
           {
             "name": "cookie",
             "in": "header",
             "schema": {
-              "type": "number"
+              "type": "string"
             },
-            "example": "mid=ZDGAPAALAAHMUqCqCgCVJ1gCIuog; ig_did=3503BDC9-EE44-4A46-AF7E-9EB4AD5E2CC0; ig_nrcb=1; datr=WYAxZK6-IfT2rGc2XBQ_Q5f_; fbm_124024574287414=base_domain=.instagram.com; ds_user_id=58236085766; dpr=1.25; csrftoken=4wbyXFZejFtapygD4gtbGY8U9MW3mmKW; sessionid=58236085766%3AFmxvuyhTfy1cNW%3A16%3AAYc1r-Ve2k_9nCWHGotkqqtrcEE1BWUdBGNhFOaWEQ; shbid=\"18008\\05458236085766\\0541731093227:01f7d2a1af6834f3bc0909b859d2876fb589d289beb83d3a2524f59d3c9f4c09b14c11d1\"; shbts=\"1699557227\\05458236085766\\0541731093227:01f7ebb77bd11cf54deb52e386e185fcb7d5c6446d8a4d8a628a7c5a7ddb19ad1e158639\"; fbsr_124024574287414=YdrVv305U5EipFAuSmSjuBxaPxjo78EGtl_ubPBTV0E.eyJ1c2VyX2lkIjoiMTAwMDI3ODExOTQxMTQwIiwiY29kZSI6IkFRQTdOMlZQSC1VaWlVZ3JyeTNuTUFJUklMQmpENC1nRmZyX29jR3J4ODN4T1dkMTJ3cThGMjVmWG1tMThfMGFwYmdnOXJuRE5BYmhTQ2p1dHBQVS03YWkxSVRVa0tIUlhQcEdWSGVUMDlzSGxNUzZHZVp5alZMdGJpWGI0RWFTRzhKanplZmF4WVdkYXhsaW1NZXpkNU4zWENjcWlhSUFIWXFfbklmOWRPSWZJN3BSQWF1d2RsS3FvTTI4QjE2WlpndGJrZWlzZDZNNnp2ZFZPd3pzSXk2TWdVNlVmZ1NGSGVWOTFJc2ZUeXpDQUJsNUpfWUdJQldnY3gyN0hLWmJXZU9VWFZJRGJRcGkwWmY0TVJyRkJpZldEb0NNa0t1NDZIcVBhejRxUGFiZk5SWkNIWkFFdGZRYzdYZUxJdWpHTURXOGM4aWRPcmR2ajQtTXpQZnloQXdRIiwib2F1dGhfdG9rZW4iOiJFQUFCd3pMaXhuallCTzdaQlVuZ0czcVJGMkZMM2JiWXRZZ05LYXY1TmFCWkJSOGNXR2E0UUthRjJnYjE1MksyMWR4cFAxYnVqS053UGxqY2pDQllueW5lN0hPZXJhUk5ESDdib0htQ2pMM1YxWVpBTmVHVkF1ZFdqU0ZFNnJKamliUzNlazJmUUY4VEFiWkJDRVlVZ2dHYWJHZkhlcHlQWE50SlY5NjAzV3g4ODN2bFlZMVljMFhJNnVNRENaQ3VVSHR4WVpEIiwiYWxnb3JpdGhtIjoiSE1BQy1TSEEyNTYiLCJpc3N1ZWRfYXQiOjE2OTk1NTc1NTJ9; rur=\"LDC\\05458236085766\\0541731093552:01f71f4ef6244fb402994edf5d7c8cff00c22594e8bc2cb6a0f9a76daafc18f5b102ca45\""
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=KnbiWMFyJb0dB3W0UTpWEWW8bDpFTvgZ; sessionid=45911216802%3AiIUDVK7jIF7tCI%3A1%3AAYeszS7rDiBtzNRLbXqTJ-WU6u1Y0oSei4Da3qzcMg; rur=\"VLL\\05445911216802\\0541742826777:01f7d374e84492383b5a6ca2c674ba5b68609ebe055deef027c0c40f5d4613fd8c4aaceb\""
           },
           {
             "name": "recent_thread_limit",
@@ -1865,230 +2481,10 @@
         }
       }
     },
-    "/api/v1/feed/reels_tray/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Stories",
-        "parameters": [
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "description": "optional",
-            "example": "application/json"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "description": "Your cookie",
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYfkMo2jbpphsYrxLOeAAv4wjSbimhCfnhFWxFGzUA; rur=\"PRN\\05460043820096\\0541740426412:01f7538e9c6b05d1aea04950b2f9c1455dd2a8d4e4db3bddc11536e7cc4a41ad5d71214a\""
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "description": "Required**",
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "is_following_feed",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "example": "false"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/friendships/{user_pk}/following/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "User followings",
-        "parameters": [
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "description": "**Your cookie here",
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; shbid=\"18008\\05458236085766\\0541739712407:01f7e81257875677f21889906a4b6913e88c7d68e1cad0d7db50ceddd57258507590126b\"; shbts=\"1708176407\\05458236085766\\0541739712407:01f74043d1437917e27c082ea480997e4c69dbe3587a8b9f5f39f6e80e479672357bd32c\"; dpr=1.25; csrftoken=kbE7ZHh05s29K2ubfF3NnpYLxEAxAnmE; ds_user_id=58236085766; sessionid=58236085766%3AvQ4Frfsm48KbgR%3A29%3AAYdhby-7AJGp1UGZiChGF-YRVbepqbJ_-MUuQCd1Bw; rur=\"CCO\\05458236085766\\0541739900054:01f7ffb5a4750a15198531f6596b7346275c66f2e5c97bda46f5835cbdbfe09430767bd7\""
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The number of followers you want to fetch",
-            "example": "150"
-          },
-          {
-            "name": "user_pk",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "description": "User id of that person",
-            "example": "8520117425"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/friendships/{user}/followers/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "User followers",
-        "parameters": [
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Your cookie here**",
-            "example": "csrftoken=FnJaJtCuwALUJ3tVPJaZRPYRkpqgZUiF;rur=\"CCO\\05460043820096\\0541740333241:01f743db0056eb6976a64beb84c0932a3ee64aff451ea69f3bc2d8ac8b8f37c0b713aaa1\";mid=ZdotNgABAAGGjRCYmh_hic7Pkft_;ds_user_id=60043820096;th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";ig_did=190691CF-AEA2-4B51-B3E4-6B90E27521EE;sessionid=60043820096%3AfsPKlUPUQ3z38d%3A21%3AAYcXuHl2Zs-mlZWv_DyWrKnK2_qKJoIVUT-CtzFXJA"
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The number of users to return in one request",
-            "example": "15"
-          },
-          {
-            "name": "user",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "description": "PK of the user",
-            "example": "8520117425"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/media/{post_id}/likers/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "likers",
-        "parameters": [
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "csrftoken=FnJaJtCuwALUJ3tVPJaZRPYRkpqgZUiF;rur=\"CCO\\05460043820096\\0541740333241:01f743db0056eb6976a64beb84c0932a3ee64aff451ea69f3bc2d8ac8b8f37c0b713aaa1\";mid=ZdotNgABAAGGjRCYmh_hic7Pkft_;ds_user_id=60043820096;th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";th_eu_pref=\"\";ig_did=190691CF-AEA2-4B51-B3E4-6B90E27521EE;sessionid=60043820096%3AfsPKlUPUQ3z38d%3A21%3AAYcXuHl2Zs-mlZWv_DyWrKnK2_qKJoIVUT-CtzFXJA"
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "post_id",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "example": "3221879251589921812"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
     "/api/v1/direct_v2/inbox/": {
       "get": {
         "tags": [
-          "default"
+          "Public"
         ],
         "summary": "list threads",
         "parameters": [
@@ -2096,9 +2492,9 @@
             "name": "cookie",
             "in": "header",
             "schema": {
-              "type": "number"
+              "type": "string"
             },
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; ds_user_id=52834349844; csrftoken=qkR1s2Uf4tesXTltsoJH9gm0AfKCvmM8; sessionid=52834349844%3AFMRVaeuqcYbiBx%3A21%3AAYeP0Bb191n0JyN1P9csWDrqQu_Cu0vkDe1sR8eKcA; rur=\"CCO\\05452834349844\\0541741076350:01f7d0da7d695e011949a66919cbbf2a3e8f6e070b4464dddae3f11253a5f9b913395323\""
+            "example": "mid=ZfV0jgALAAF5405MYkFa8AwFqjIa; ig_did=DB1CC4E2-54BC-4920-8761-A1BE3D83C756; ig_nrcb=1; datr=iHT1ZfYzF53T2ljVrqC8d1iU; ps_l=0; ps_n=0; ds_user_id=45911216802; shbid=\"19950\\05445911216802\\0541742825196:01f7cfe176a5674757b9503ec1b0dc60151de2cda8b1759e8061168f2398089ff058d662\"; shbts=\"1711289196\\05445911216802\\0541742825196:01f7f223036bba251396f76acdfee85cc23cacbe384289404a4bd015d0a219ce0cbb39a3\"; csrftoken=KnbiWMFyJb0dB3W0UTpWEWW8bDpFTvgZ; sessionid=45911216802%3AiIUDVK7jIF7tCI%3A1%3AAYeszS7rDiBtzNRLbXqTJ-WU6u1Y0oSei4Da3qzcMg; rur=\"VLL\\05445911216802\\0541742828308:01f7fe19506074830c8aad415eb9575077dc9fb7e6e61d9a82dd79800cff9c1dd0284b69\""
           },
           {
             "name": "user-agent",
@@ -2114,7 +2510,7 @@
             "schema": {
               "type": "string"
             },
-            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
+            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQUthNDJjVmxKUU5ITGgzJTNBMyUzQUFZZWJXMUpOUzlBYWhiWDZrUXkwSzlIaF9LME5UMnpWeEdjd2w5N3lLQSJ9"
           },
           {
             "name": "visual_message_return_type",
@@ -2187,172 +2583,6 @@
         }
       }
     },
-    "/api/v1/friendships/destroy/{user_pk}/": {
-      "post": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Unfollow",
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "properties": {
-                  "container_module": {
-                    "type": "string",
-                    "example": "profile"
-                  },
-                  "user_id": {
-                    "type": "integer",
-                    "example": "59643570474"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "content-type",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/x-www-form-urlencoded"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "description": "**Your session cookie"
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110 Android"
-          },
-          {
-            "name": "user_pk",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "description": "User id of the person",
-            "example": "59643570474"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/friendships/create/{user_pk}/": {
-      "post": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Follow",
-        "requestBody": {
-          "content": {}
-        },
-        "parameters": [
-          {
-            "name": "authority",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "www.instagram.com"
-          },
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "content-type",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/x-www-form-urlencoded"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "description": "**Your session cookie",
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=52834349844; shbid=\"2530\\05452834349844\\0541741200191:01f73fcdbc6ebb3345e1f3c192ef7ebfc0c3e722de65dc7e04123e47bfeeb36c197e7400\"; shbts=\"1709664191\\05452834349844\\0541741200191:01f743db3162b3bde69513ccc4ce6cd13e607712937d858e15ec41c1dbcc4bee06b214fa\"; csrftoken=Ri40yB94kr3vqjoFKDMIIuiND2EROom8; sessionid=52834349844%3AvOIDj5VtkaRwBC%3A7%3AAYeXFJ37LOk-33szPxBger13XwRze0tMYaIJSiQTcg; rur=\"CCO\\05452834349844\\0541741207600:01f78a12aa7603e80c4e21715753db8c70e4fc7c85f0eede6b675804161564091b6e6833\""
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Mozilla/5.0"
-          },
-          {
-            "name": "x-ig-app-id",
-            "in": "header",
-            "schema": {
-              "type": "integer"
-            },
-            "example": "936619743392459"
-          },
-          {
-            "name": "x-csrftoken",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "z6yJjVmpUypZNuWwN5PJenOREn9YajhR"
-          },
-          {
-            "name": "user_pk",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "description": "User id of the account you want to follow",
-            "example": "59643570474"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
     "/api/v1/web/accounts/login/ajax/": {
       "post": {
         "tags": [
@@ -2367,7 +2597,7 @@
                   "enc_password": {
                     "type": "string",
                     "description": "Password in the format #PWD_INSTAGRAM_BROWSER:0:timestamp:password",
-                    "example": "#PWD_INSTAGRAM_BROWSER:0:1698957740:testpassword"
+                    "example": "#PWD_INSTAGRAM_BROWSER:0:1698957740:newtestpassword"
                   },
                   "optIntoOneTap": {
                     "type": "boolean",
@@ -2417,258 +2647,20 @@
             "example": "application/x-www-form-urlencoded"
           },
           {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "dpr=1.25; csrftoken=CvHCuWbWdJlnzXx4VFyDhIadqTZW2go7; mid=ZUQJeQALAAGz94FfN1CX1o8a75LH; ig_did=CC6165B3-6FC4-4B3B-A0A0-810F21A94A20; ig_nrcb=1; datr=eAlEZdmkdk56TjJo9cU8rYMo"
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110 Android"
-          },
-          {
             "name": "x-csrftoken",
             "in": "header",
             "schema": {
               "type": "string"
             },
-            "example": "UQPOYgrMofiDubY098gUCq07WxxzDa3m"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/media/{media_ID}/comments/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Comments",
-        "parameters": [
-          {
-            "name": "authority",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "www.instagram.com"
-          },
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; shbid=\"7804\\05460043820096\\0541740339567:01f799ce42dbfca6fe6dc3308e97f08411187db6a8b9a95aa7451150be2f68895936192f\"; shbts=\"1708803567\\05460043820096\\0541740339567:01f77bd573bfcab8bbf806cc64f31121eba2df63914a6ff40998c19497406e907153e4b4\"; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcPAjbVat5tmJpMLw1JxZwk5mSn-X3plCMoDekraA; rur=\"CCO\\05460043820096\\0541740598055:01f7eaf740b4f6ab17f8976e8c196fa27c4f0c58e2dc9071f0a25b3b7cf03abfbe9f67b9\""
+            "example": "ZlxaCJA2lzDOS5y6wi6TLLiJYDKpbQLx"
           },
           {
             "name": "user-agent",
             "in": "header",
             "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "can_support_threading",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "example": "true"
-          },
-          {
-            "name": "permalink_enabled",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "example": "false"
-          },
-          {
-            "name": "media_ID",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "example": "3301942701032145072"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/media/{mediaID}/info/": {
-      "get": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Post info",
-        "parameters": [
-          {
-            "name": "authority",
-            "in": "header",
-            "schema": {
               "type": "string"
             },
-            "example": "www.instagram.com"
-          },
-          {
-            "name": "accept",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "application/json"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; ds_user_id=60043820096; csrftoken=iHbUupzUQtq7Ed99GrAT6LwFXnDCMNtt; shbid=\"7804\\05460043820096\\0541740598996:01f7e2e997b17fc9e4b3f9bffbdda2b926a114473fa515be8caa501275d3a473ca37a758\"; shbts=\"1709062996\\05460043820096\\0541740598996:01f75a6bcb1a016514d0c58e58e137836272a4e7d549eccbd9b0f9b2791a3a2ae2e3f141\"; sessionid=60043820096%3AkZepCc5vte4Yui%3A0%3AAYcIhrovhN8XtO8246mvPPXzXIfMuzzRKgoZ7IBfSg; rur=\"EAG\\05460043820096\\0541740643155:01f72279f5158c8ad56c94b972d759cc0b396b1e25f88ae5afb4808769bc0295a783e9bf\""
-          },
-          {
-            "name": "user-agent",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "Instagram 244.0.0.17.110"
-          },
-          {
-            "name": "mediaID",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true,
-            "example": "3311799069949154893"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {}
-            }
-          }
-        }
-      }
-    },
-    "/rupload_igphoto/{file_name}": {
-      "post": {
-        "tags": [
-          "default"
-        ],
-        "summary": "Upload",
-        "requestBody": {
-          "content": {
-            "text/plain": {}
-          }
-        },
-        "parameters": [
-          {
-            "name": "content-type",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "image/jpeg"
-          },
-          {
-            "name": "cookie",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "mid=Zaq_FgALAAGmXqseJ7v8Uv7Tl7u7; ig_did=FFE459C1-99BF-4968-8476-2866EA716E71; ig_nrcb=1; datr=Fb-qZU4_T5yHxf6MskK50vXI; ps_n=0; ps_l=0; dpr=1.25; shbid=\"18008\\05458236085766\\0541740859360:01f76e57ad093c9d8b74c28429fc3ea50ac30a37bed376eaef0c5868061eb28f018d23d1\"; shbts=\"1709323360\\05458236085766\\0541740859360:01f723c9e4c6e089e63a734bd18df228fb9e6e1eed5a787a730cd7d804b73f6dad410445\"; ds_user_id=52834349844; csrftoken=qkR1s2Uf4tesXTltsoJH9gm0AfKCvmM8; sessionid=52834349844%3AFMRVaeuqcYbiBx%3A21%3AAYeP0Bb191n0JyN1P9csWDrqQu_Cu0vkDe1sR8eKcA; rur=\"CCO\\05452834349844\\0541741088720:01f7176ff14e426bf0b911c5fdbf8e4ca275964fcbf00123abe66d0b434e3983a6df6cea\""
-          },
-          {
-            "name": "offset",
-            "in": "header",
-            "schema": {
-              "type": "integer"
-            },
-            "example": "0"
-          },
-          {
-            "name": "x-entity-length",
-            "in": "header",
-            "schema": {
-              "type": "integer"
-            },
-            "example": "308663"
-          },
-          {
-            "name": "x-entity-name",
-            "in": "header",
-            "schema": {
-              "type": "number"
-            },
-            "example": "x128.2"
-          },
-          {
-            "name": "x-entity-type",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "image/jpeg"
-          },
-          {
-            "name": "x-instagram-rupload-params",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "{\"media_type\":1,\"upload_id\":\"55689\",\"upload_media_height\":800,\"upload_media_width\":800}"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "Bearer IGT:2:eyJkc191c2VyX2lkIjoiNTI4MzQzNDk4NDQiLCJzZXNzaW9uaWQiOiI1MjgzNDM0OTg0NCUzQTlMOXRUeU1sZHpqdFQzJTNBOSUzQUFZZWlJY1YtR2tuYjNIVjZsZEVJdWN4WVhHMmMxUVprQnBmYUhZWk95QSJ9"
-          },
-          {
-            "name": "file_name",
-            "in": "path",
-            "schema": {
-              "type": "number"
-            },
-            "required": true,
-            "example": "x128.2"
+            "example": "{{mobileAgent}}"
           }
         ],
         "responses": {
