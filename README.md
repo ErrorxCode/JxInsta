@@ -76,7 +76,7 @@ You can search on Google for more info on including local dependencies.
 -   [Instagram usage limits](https://www.linkedin.com/pulse/stay-within-boundaries-complete-breakdown-instagrams-cmscc/)
 - [Instagram daily limit](https://socialpros.co/instagram-daily-limits/#:~:text=Instagram's%20Daily%20Limits%20%E2%80%93%20Like,than%2030%20likes%20per%20hour)
 -   [API Policies](https://developers.facebook.com/devpolicy/)
--   [About Instagram checkpoints and challenges](/Instagram+checkpoints.md)
+-   [About Instagram checkpoints and challenges](https://github.com/ErrorxCode/JxInsta/blob/main/Instagram%20checkpoints.md)
 
 ## Its easy :)
 
