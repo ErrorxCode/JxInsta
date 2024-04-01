@@ -20,6 +20,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/ncovercash/JxInsta")
             credentials {
+                // provided by GitHub workflow
                 username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
                 password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
@@ -28,6 +29,8 @@ publishing {
     publications {
         gpr(MavenPublication) {
             artifactId = 'jx-insta'
+            // Seems like this isn't set anywhere else?
+            version = '0.0.1'
             from(components.java)
         }
     }
