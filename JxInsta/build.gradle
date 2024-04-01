@@ -27,6 +27,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
+            artifactId = 'jx-insta'
             from(components.java)
         }
     }
