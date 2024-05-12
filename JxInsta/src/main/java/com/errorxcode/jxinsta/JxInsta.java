@@ -186,7 +186,7 @@ public class JxInsta extends AuthInfo {
     }
 
     public void postPicture(@NotNull InputStream inputStream,@NotNull String caption,boolean disableLikenComment) throws IOException, InstagramException {
-        var id = Utils.uploadPicture(inputStream, cookie);
+        var id = Utils.uploadPicture(inputStream, cookie != null ? cookie : token);
         var body = new HashMap<String,Object>();
         body.put("caption", caption);
         body.put("upload_id", id);
