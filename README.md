@@ -28,48 +28,56 @@ A java library of Instagram private web API (*may include mobile api in future*)
 -   Supports  **Posting (Picture)**
 -   Supports  **Adding stories (Photo)**
 -   Supports  **Following/Unfollowing**
--   Supports  ***Acception/Ignoring follow request*** (Pending)
+-   Supports  ***Accepting/Ignoring follow request*** (Pending)
 -   Supports  **Scrapping followings and followers**
 -   Supports  **Getting profile data**
 -   Supports  **Liking/commenting on post**
 -   Supports  **Fetching feeds/timeline post**
 -   Supports  **Downloading posts and pfp**
 
-## Implimentation
-Due to the outage of jitpack, the library cannot published. Therfore, you have to locally implement it by puting the .jar file in the lib directory.
+## Usage
 
-#### Step 1 : Download the `.jar` from the release section and put it in `lib` folder of your project.
+### Maven
 
-#### Step 2 : declare the dependency
-*For gradle*
+To use JxInsta in your Maven project, add the following to your `pom.xml` `<dependencies>`:
 
-```groovy
-dependencies {
-    implementation files('libs/JxInsta-v1.0-beta.jar')
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.11' //skip if already implemented
+```xml
+<dependency>
+  <groupId>EasyInsta</groupId>
+  <artifactId>jx-insta</artifactId>
+  <version>LATEST</version>
+</dependency>
+```
+
+and, in `<repositories>`:
+
+```xml
+<repository>
+  <id>github</id>
+  <url>https://maven.pkg.github.com/ErrorxCode/JxInsta</url>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+```
+
+### Gradle
+
+To use JxInsta in your Gradle project, add the following to your `build.gradle`:
+
+```gradle
+repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/ErrorxCode/JxInsta")
+    }
 }
 ```
 
-*For maven*
+and, in your `dependencies`:
 
-```XML
-<dependency>
-    <groupId>com.sample</groupId>
-    <artifactId>jxinsta</artifactId>
-    <version>v1.0-beta-2</version>
-    <scope>system</scope>
-    <systemPath>${project.basedir}/lib/JxInsta-v1.0-beta-2.jar</systemPath>
-</dependency>
-
-<dependency>
-    <groupId>com.squareup.okhttp3</groupId>
-    <artifactId>okhttp</artifactId>
-    <version>5.0.0-alpha.11</version>
-</dependency>
-
+```gradle
+implementation "EasyInsta:jx-insta:+"
 ```
-
-You can search on Google for more info on including local dependencies.
 
 ## Acknowledgements
 
