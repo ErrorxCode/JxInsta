@@ -1,5 +1,7 @@
 plugins {
     id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    
 }
 
 java {
@@ -11,5 +13,5 @@ java {
 dependencies {
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '5.0.0-alpha.11'
     implementation 'com.github.ErrorxCode:JSON-java-port:20220320'
-
+    implementation("com.google.code.gson:gson:2.13.1")
 }

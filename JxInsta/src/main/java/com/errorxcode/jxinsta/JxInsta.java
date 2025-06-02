@@ -1,16 +1,7 @@
 package com.errorxcode.jxinsta;
 
-import com.errorxcode.jxinsta.endpoints.direct.DirectMessaging;
-import com.errorxcode.jxinsta.endpoints.profile.Post;
-import com.errorxcode.jxinsta.endpoints.profile.Profile;
-import com.errorxcode.jxinsta.endpoints.profile.Story;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,10 +10,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import com.errorxcode.jxinsta.endpoints.direct.DirectMessaging;
+import com.errorxcode.jxinsta.endpoints.profile.Post;
+import com.errorxcode.jxinsta.endpoints.profile.Profile;
+import com.errorxcode.jxinsta.endpoints.profile.Story;
+import com.sun.tools.javac.Main;
+
 import okhttp3.FormBody;
 import okhttp3.Headers;
+import okhttp3.MediaType;
 import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.RequestBody;
+import port.org.json.JSONArray;
 import port.org.json.JSONException;
 import port.org.json.JSONObject;
 
@@ -81,24 +83,20 @@ public class JxInsta extends AuthInfo {
             throw new IllegalArgumentException("Invalid login type");
         }
 
-
         var response = Utils.call(builder.build(), null);
         if (response.isSuccessful()) {
             if (response.body().string().equals("{\"user\":true,\"authenticated\":false,\"status\":\"ok\"}"))
                 throw new InstagramException("Wrong password", InstagramException.Reasons.INVALID_CREDENTIAL);
-
-
             if (type == LoginType.WEB_AUTHENTICATION) {
                 cookie = Utils.extractCookie(response.headers("set-cookie"));
                 authorization = cookie;
-                crsf = cookie.split(";")[0].split("=")[1];
+                crsf = Utils.extractCsrfToken(cookie); 
             } else if (type == LoginType.APP_AUTHENTICATION) {
                 token = response.header("ig-set-authorization");
                 authorization = token;
             }  else {
                 throw new IllegalArgumentException("Invalid login type");
             }
-
             response.close();
         } else {
             var json = new JSONObject(response.body().string());
@@ -123,12 +121,10 @@ public class JxInsta extends AuthInfo {
 
         this.cookie = cookie;
         this.token = bearer;
-        this.crsf = cookie.split(";")[0].split("=")[1];
-        System.out.println(crsf);
+        this.crsf = Utils.extractCsrfToken(cookie); 
         authorization = cookie;
         loginType = LoginType.WEB_AUTHENTICATION;
     }
-
 
     public Profile getProfile(String username) throws IOException, InstagramException {
         return new Profile(this, username);
@@ -185,8 +181,45 @@ public class JxInsta extends AuthInfo {
         }
     }
 
+    public void postPictures(@NotNull String caption, boolean disableLikenComment, File... pictures) throws IOException, InstagramException {
+        List<String> mediaIds = Utils.uploadPictures(cookie != null ? cookie : token, pictures);
+        
+       JSONArray mediaIdsJson = new JSONArray();
+        for (String mediaId : mediaIds) {
+            JSONObject obj = new JSONObject();
+            obj.put("upload_id", mediaId);
+            mediaIdsJson.put(obj);
+        }
+
+        JSONObject body = new JSONObject();
+        body.put("archive_only", false);
+        body.put("caption", caption);
+        body.put("children_metadata", mediaIdsJson);
+        body.put("client_sidecar_id", String.valueOf(System.currentTimeMillis()));
+        body.put("disable_comments", disableLikenComment ? "1" : "0");
+        body.put("is_meta_only_post", false);
+        body.put("is_open_to_public_submission", false);
+        body.put("jazoest", Utils.generateJazoest(this.crsf));
+        body.put("like_and_view_counts_disabled", disableLikenComment ? 1 : 0);
+        body.put("media_share_flow", "creation_flow");
+        body.put("share_to_facebook", "");
+        body.put("share_to_fb_destination_type", "USER");
+        body.put("source_type", "library");
+
+        var req = Utils.createPostRequest(this, "media/configure_sidecar/", body);
+        req = req.newBuilder().addHeader("x-ig-app-id","936619743392459").build();
+        try (var res = Utils.call(req, this)) {
+            var json = new JSONObject(res.body().string());
+            if (json.getString("status").equals("ok")) {
+                System.out.println("Post successful");
+            } else {
+                throw new InstagramException(json.toString(3), InstagramException.Reasons.UNKNOWN);
+            }
+        }
+    }
+
     public void postPicture(@NotNull InputStream inputStream,@NotNull String caption,boolean disableLikenComment) throws IOException, InstagramException {
-        var id = Utils.uploadPicture(inputStream, cookie != null ? cookie : token);
+        var id = Utils.uploadPicture(inputStream, cookie != null ? cookie : token,System.currentTimeMillis());
         var body = new HashMap<String,Object>();
         body.put("caption", caption);
         body.put("upload_id", id);
@@ -222,7 +255,7 @@ public class JxInsta extends AuthInfo {
             throw new IllegalArgumentException("Invalid file type. Only videos are supported");
 
 
-        var uploadId = Utils.uploadPicture(new FileInputStream(photo), token);
+        var uploadId = Utils.uploadPicture(new FileInputStream(photo), token,System.currentTimeMillis());
         System.out.println(uploadId);
         var body = new HashMap<String,Object>();
         body.put("upload_id", uploadId);

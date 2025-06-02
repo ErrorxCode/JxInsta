@@ -1,24 +1,24 @@
 package com.errorxcode.jxinsta;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -87,17 +87,44 @@ public class Utils {
         });
     }
 
+    public static String generateJazoest(String input) {
+        int total = 0;
+        for (char c : input.toCharArray()) {
+            total += (int) c;
+        }
+        return "2" + total;
+    }
+
+    public static String extractCsrfToken(String cookieString) {
+        String[] cookies = cookieString.split(";");
+        for (String cookie : cookies) {
+            String[] keyValue = cookie.trim().split("=", 2);
+            if (keyValue.length == 2 && keyValue[0].equals("csrftoken")) {
+                return keyValue[1];
+            }
+        }
+        return null;
+    }
 
     protected static String getCrsf() throws IOException {
         Request request = new Request.Builder()
-                .url("https://www.instagram.com/api/v1/web/login_page/")
-                .headers(Headers.of(Constants.BASE_HEADERS))
+                .url("https://www.instagram.com/")
                 .addHeader("user-agent", Constants.WEB_USER_AGENT)
+                .addHeader("accept", "*/*")
+                .addHeader("accept-language", "en-US,en;q=0.9")
+                .addHeader("x-requested-with", "XMLHttpRequest")
                 .get()
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            return response.headers("Set-cookie").get(0).split(";")[0].split("=")[1];
+            List<String> cookies = response.headers("Set-Cookie");
+
+            for (String cookie : cookies) {
+                if (cookie.startsWith("csrftoken=")) {
+                    return cookie.split(";")[0].split("=")[1];
+                }
+            }
+            throw new IOException("csrftoken not found in cookies");
         }
     }
 
@@ -140,46 +167,81 @@ public class Utils {
                 .get().build();
     }
 
-    public static Request createPostRequest(@NotNull AuthInfo authInfo, String endpoint, Map<String, Object> body) {
-        boolean isDesktop = authInfo.loginType == JxInsta.LoginType.BOTH_WEB_AND_APP_AUTHENTICATION || authInfo.loginType == JxInsta.LoginType.WEB_AUTHENTICATION;
-        var req = new Request.Builder()
+    public static Request createPostRequest(@NotNull AuthInfo authInfo, String endpoint, Object body) {
+        boolean isDesktop = authInfo.loginType == JxInsta.LoginType.BOTH_WEB_AND_APP_AUTHENTICATION ||
+                            authInfo.loginType == JxInsta.LoginType.WEB_AUTHENTICATION;
+
+        Request.Builder req = new Request.Builder()
                 .url(Constants.BASE_URL + endpoint)
-                .headers(Headers.of(Constants.BASE_HEADERS))
+                .headers(Headers.of(Constants.BASE_HEADERS_WITHOUT_CONTENT_TYPE))
                 .addHeader(isDesktop ? "cookie" : "authorization", authInfo.authorization)
                 .addHeader(isDesktop ? "x-csrftoken" : "null", isDesktop ? authInfo.crsf : "na")
                 .addHeader("user-agent", isDesktop ? Constants.WEB_USER_AGENT : Constants.MOBILE_USER_AGENT);
 
-
         if (body == null) {
+            req.addHeader("content-type", "application/x-www-form-urlencoded");
             req.method("POST", RequestBody.create(new byte[0]));
-        } else {
+            return req.build();
+        }
+
+        if (body instanceof Map) {
+            // Form encoded
             var form = new FormBody.Builder();
-            for (Map.Entry<String, Object> entry : body.entrySet()) {
-                form.addEncoded(entry.getKey(), entry.getValue().toString());
+            for (Map.Entry<?, ?> entry : ((Map<?, ?>) body).entrySet()) {
+                form.addEncoded(entry.getKey().toString(), entry.getValue().toString());
             }
+            req.addHeader("content-type", "application/x-www-form-urlencoded");
             req.method("POST", form.build());
+        } else if (body instanceof JSONObject) {
+            // JSON encoded JSONObject
+            MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+            req.addHeader("content-type", "application/json");
+            req.method("POST", RequestBody.create(((JSONObject) body).toString(), JSON));
+        } else {
+            throw new IllegalArgumentException("Unsupported body type: " + body.getClass().getName());
         }
         return req.build();
     }
+
 
     public static Request injectAppId(Request request) {
         return request.newBuilder().addHeader("x-ig-app-id", Constants.X_APP_ID).build();
     }
 
+    public static List<String> uploadPictures(@NotNull String token, File... pictures){
+        long timestamp = System.currentTimeMillis();
+        ArrayList<String> medias = new ArrayList<>();
+        for (File picture : pictures) {
+            try (InputStream in = new FileInputStream(picture)) {
+                String uploadId = Utils.uploadPicture(in,  token, timestamp);
+                timestamp+=1;
+                medias.add(uploadId);
+            } catch (IOException e) {
+                System.err.println("Error uploading the picture: " + picture.getName());
+                e.printStackTrace();
+            }
+        }
+        return medias;
+    }
+    
     public static String uploadPicture(@NotNull InputStream in, @NotNull String token) throws IOException {
-        var uploadId = Long.toString(Math.abs(new Random().nextLong()), 36);
+        return uploadPicture(in, token, System.currentTimeMillis());
+    }
+
+    public static String uploadPicture(@NotNull InputStream in, @NotNull String token, long ts) throws IOException {
+        var uploadId = Long.toString(ts);
         byte[] bytes = new byte[in.available()];
         in.read(bytes);
 
         var isCookie = token.contains("sessionid");
 
         var uploadReq = new Request.Builder()
-                .url("https://i.instagram.com/rupload_igphoto/" + "JxInsta_upload_" + uploadId)
+                .url("https://i.instagram.com/rupload_igphoto/" + "fb_uploader_" + uploadId)
                 .post(RequestBody.create(bytes))
                 .headers(Headers.of(Constants.BASE_HEADERS))
                 .addHeader("x-instagram-rupload-params", "{\"media_type\":1,\"upload_id\":\"" + uploadId + "\"}")
                 .addHeader("x-entity-length", String.valueOf(bytes.length))
-                .addHeader("x-entity-name", "JxInsta_upload_" + uploadId)
+                .addHeader("x-entity-name", "fb_uploader_" + uploadId)
                 .addHeader("x-entity-type", "image/jpeg")
                 .addHeader("offset", String.valueOf(0))
                 .removeHeader("content-type")

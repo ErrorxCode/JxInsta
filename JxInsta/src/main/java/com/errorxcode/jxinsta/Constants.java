@@ -9,13 +9,18 @@ public class Constants {
     public static final String MOBILE_USER_AGENT = "Instagram 244.0.0.17.110 Android";
     public static final String WEB_USER_AGENT = "Mozilla/5.0";
     public static final String X_APP_ID = "936619743392459";
-    public static final Map<String,String> BASE_HEADERS = new HashMap<>(){
+
+    public static final Map<String,String> BASE_HEADERS_WITHOUT_CONTENT_TYPE = new HashMap<>(){
         {
             put("authority", "www.instagram.com");
             put("accept", "application/json");
             put("origin", "https://www.instagram.com");
+        }
+    };
+    public static final Map<String,String> BASE_HEADERS = new HashMap<>(){
+        {
             put("content-type", "application/x-www-form-urlencoded");
-
+            putAll(BASE_HEADERS_WITHOUT_CONTENT_TYPE);
         }
     };
 
