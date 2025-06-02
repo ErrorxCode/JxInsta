@@ -182,6 +182,10 @@ public class JxInsta extends AuthInfo {
     }
 
     public void postPictures(@NotNull String caption, boolean disableLikenComment, File... pictures) throws IOException, InstagramException {
+        if(pictures.length > 10){
+            throw new InstagramException("You can post only 10 pictures maximum in one post", InstagramException.Reasons.TOO_MUCH_PICTURES);
+        }
+
         List<String> mediaIds = Utils.uploadPictures(cookie != null ? cookie : token, pictures);
         
        JSONArray mediaIdsJson = new JSONArray();
