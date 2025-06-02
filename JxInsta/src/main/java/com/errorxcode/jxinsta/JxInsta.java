@@ -2,14 +2,16 @@ package com.errorxcode.jxinsta;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -115,7 +117,7 @@ public class JxInsta extends AuthInfo {
      *
      * @param cookie OPTIONAL if auth is passed : Cookie for authentication (For web api)
      */
-    public JxInsta(String cookie,String bearer) {
+    public JxInsta(String cookie, String bearer) {
         if (cookie == null && bearer == null)
             throw new IllegalArgumentException("One of the cookie or token should be provided");
 
@@ -125,6 +127,8 @@ public class JxInsta extends AuthInfo {
         authorization = cookie;
         loginType = LoginType.WEB_AUTHENTICATION;
     }
+
+    private JxInsta() {}
 
     public Profile getProfile(String username) throws IOException, InstagramException {
         return new Profile(this, username);
@@ -194,7 +198,7 @@ public class JxInsta extends AuthInfo {
             obj.put("upload_id", mediaId);
             mediaIdsJson.put(obj);
         }
-
+        System.out.print("LOADED mediaIdsJson:"+mediaIdsJson); 
         JSONObject body = new JSONObject();
         body.put("archive_only", false);
         body.put("caption", caption);
@@ -312,5 +316,29 @@ public class JxInsta extends AuthInfo {
             }
             return map;
         }
+    }
+
+    public void saveSession(String filePath) throws IOException {
+        JSONObject data = new JSONObject();
+        data.put("crsf", this.crsf);
+        data.put("token", this.token);
+        data.put("cookie", this.cookie);
+        data.put("authorization", this.authorization);
+        data.put("loginType", this.loginType.name());
+        try (FileWriter file = new FileWriter(filePath)) {
+            file.write(data.toString(4)); 
+        }
+    }
+
+    public static JxInsta loadSession(String filePath) throws IOException{
+        String content = new String(Files.readAllBytes(Paths.get(filePath)));
+        JSONObject data = new JSONObject(content);
+        JxInsta insta = new JxInsta();
+        insta.crsf = data.getString("crsf");
+        insta.token = data.getString("token");
+        insta.cookie = data.getString("cookie");
+        insta.authorization = data.getString("authorization");
+        insta.loginType = LoginType.valueOf(data.getString("loginType"));
+        return insta;
     }
 }
