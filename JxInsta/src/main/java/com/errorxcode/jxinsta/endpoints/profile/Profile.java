@@ -154,7 +154,7 @@ public class Profile {
      * @throws InstagramException if there's an error in the Instagram API
      */
     public List<String> getFollowers(int count) throws IOException, InstagramException {
-        var req = Utils.createGetRequest("friendships/" + pk + "/followers/?count=" + count + "&maxId=" + nextPageCursor,authInfo);
+        var req = Utils.createGetRequest("friendships/" + pk + "/followers/?count=" + count + "&max_id=" + nextPageCursor,authInfo);
         try (var response = Utils.call(req,authInfo)){
             var json = new JSONObject(response.body().string());
             nextPageCursor = json.getString("next_max_id");
@@ -175,7 +175,7 @@ public class Profile {
      * @throws InstagramException if there's an error in the Instagram API
      */
     public List<String> getFollowings(int count) throws IOException, InstagramException {
-        var req = Utils.createGetRequest("friendships/" + pk + "/following/?count=" + count + "&maxId=" + nextPageCursor,authInfo);
+        var req = Utils.createGetRequest("friendships/" + pk + "/following/?count=" + count + "&max_id=" + nextPageCursor,authInfo);
         try (var response = Utils.call(req,authInfo)){
             var json = new JSONObject(response.body().string());
             nextPageCursor = json.getString("next_max_id");
