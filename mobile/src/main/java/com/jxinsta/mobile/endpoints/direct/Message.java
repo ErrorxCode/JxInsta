@@ -3,33 +3,16 @@ package com.jxinsta.mobile.endpoints.direct;
 import port.org.json.JSONArray;
 import port.org.json.JSONObject;
 
-/**
- * Represents a single message within a Direct Message thread.
- * Supports various message types such as text, images, videos, and shared posts.
- */
 public class Message {
-    /** The unique identifier of the message item. */
-    public final String id;
-    /** The text content of the message. Only populated if {@code type == TEXT}. */
+    private final String id;
     public String text;
-    /** The URL to the media (image/video). Populated if {@code type == IMAGE} or {@code type == VIDEO}. */
     public String mediaURL;
-    /** The URL of a shared post. Populated if {@code type == POST}. */
     public String postURL;
-    /** The type of this message. */
     public TYPE type;
-    /** Indicates if this message is a reply to another message. */
     public boolean isReply;
-    /** Indicates if the current user sent this message. */
     public boolean isSent;
-    /** The message that this message is replying to. {@code null} if {@code isReply} is false. */
     public Message replyOf;
 
-    /**
-     * Constructs a Message object from a JSON item.
-     *
-     * @param item The JSON object representing a message item from the Instagram API.
-     */
     public Message(JSONObject item) {
         this.id = item.optString("item_id");
         this.isSent = item.optBoolean("is_sent_by_viewer", false);
@@ -89,19 +72,13 @@ public class Message {
     }
 
 
-    /**
-     * Enum defining the possible types of a direct message.
-     */
-    public enum TYPE {
-        /** Plain text message. */
+    enum TYPE {
         TEXT,
-        /** An image message. */
         IMAGE,
-        /** A video message. */
         VIDEO,
-        /** A shared Instagram post. */
         POST,
-        /** Unknown or unsupported message type. */
         UNDEFINED
     }
 }
+
+

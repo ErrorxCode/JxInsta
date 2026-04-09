@@ -20,33 +20,15 @@ import okhttp3.Headers;
 import okhttp3.Request;
 import port.org.json.JSONObject;
 
-/**
- * Represents an Instagram post in the mobile API context.
- * Extends {@link PostData} to provide interactive methods such as liking, commenting, and fetching likers.
- */
 public class Post extends PostData implements Likable {
     protected final String auth;
-    /** Indicates if there are more comments or related data to fetch (internal use). */
     public boolean hasMore;
 
-    /**
-     * Internal constructor for Post.
-     *
-     * @param auth     The authentication token.
-     * @param postItem The JSON object containing post data.
-     */
     public Post(@NotNull String auth, @NotNull JSONObject postItem) {
         super(postItem);
         this.auth = auth;
     }
 
-    /**
-     * Fetches post data from a given URL using the public GraphQL API.
-     *
-     * @param url The URL of the post.
-     * @return A {@link PostData} instance containing the post's information.
-     * @throws InstagramException If the API returns an error.
-     */
     public static PostData getPost(@NotNull String url) throws InstagramException {
         var shortcode = url.split("/p/")[1].split("/")[0];
         var vars = new JSONObject();
@@ -69,15 +51,10 @@ public class Post extends PostData implements Likable {
                 .build();
 
         var json = Utils.callAPI(req);
-        var shortcode_media = json.getJSONObject("xdt_shortcode_media");
+        var shortcode_media = json.getJSONObject("data").getJSONObject("xdt_shortcode_media");
         return new PostData(shortcode_media);
     }
 
-    /**
-     * Likes this post.
-     *
-     * @throws InstagramException If the API returns an error.
-     */
     @Override
     public void like() throws InstagramException {
         Map<String, String> body = new HashMap<>();
@@ -85,23 +62,12 @@ public class Post extends PostData implements Likable {
         Utils.post(Constants.Endpoints.mediaLike(id), auth, body);
     }
 
-    /**
-     * Removes the like from this post.
-     *
-     * @throws InstagramException If the API returns an error.
-     */
     public void dislike() throws InstagramException {
         Map<String, String> body = new HashMap<>();
         body.put("media_id", id);
         Utils.post(Constants.Endpoints.mediaUnlike(id), auth, body);
     }
 
-    /**
-     * Fetches the usernames of users who liked this post.
-     *
-     * @return A list of usernames.
-     * @throws InstagramException If the API returns an error.
-     */
     public List<String> likers() throws InstagramException {
         var json = Utils.get(Constants.Endpoints.mediaLikers(id), auth, null);
         var users = json.getJSONArray("users");
@@ -113,22 +79,12 @@ public class Post extends PostData implements Likable {
     }
 
 
-    /**
-     * Returns a paginator for fetching comments on this post.
-     *
-     * @return A {@link CommentPaginator}.
-     */
+
     public CommentPaginator getComments() {
         return new CommentPaginator(id,auth);
     }
 
 
-    /**
-     * Adds a comment to this post.
-     *
-     * @param comment The text of the comment.
-     * @throws InstagramException If the API returns an error.
-     */
     public void comment(@NotNull String comment) throws InstagramException {
         Map<String, String> body = new HashMap<>();
         body.put("comment_text", comment);
@@ -147,15 +103,9 @@ public class Post extends PostData implements Likable {
                 '}';
     }
 
-    /**
-     * Supported media types for an Instagram post.
-     */
     public enum MEDIA_TYPE {
-        /** Video content. */
         VIDEO,
-        /** Single image. */
         IMAGE,
-        /** Multi-item post (slideshow). */
         CAROUSEL
     }
 }

@@ -13,45 +13,22 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 
-/**
- * Paginator for fetching comments from an Instagram post in the mobile API context.
- * Implements {@link Iterator} to provide pages of {@link Comment} objects.
- */
 public class CommentPaginator implements Iterator<List<Comment>> {
-    /** The current pagination cursor. */
     public String cursor;
     private final String id;
     private final String auth;
     private boolean canFetchMore = true;
 
-    /**
-     * Internal constructor for CommentPaginator.
-     *
-     * @param id   The unique identifier (PK) of the post.
-     * @param auth The authentication token.
-     */
     public CommentPaginator(String id, String auth) {
         this.id = id;
         this.auth = auth;
     }
 
-    /**
-     * Checks if there are more comments available to fetch.
-     *
-     * @return {@code true} if another page can be fetched, {@code false} otherwise.
-     */
     @Override
     public boolean hasNext() {
         return canFetchMore;
     }
 
-    /**
-     * Fetches the next page of comments.
-     *
-     * @return A list of {@link Comment} objects for the current page.
-     * @throws NoSuchElementException If no more pages are available.
-     * @throws RuntimeException If an {@link InstagramException} occurs during the API call.
-     */
     @Override
     public List<Comment> next() {
         if (!hasNext()) {

@@ -14,46 +14,23 @@ import java.util.NoSuchElementException;
 import port.org.json.JSONArray;
 import port.org.json.JSONObject;
 
-/**
- * Paginator for fetching older messages in a direct message thread.
- * Implements {@link Iterator} to provide pages of {@link Message} objects.
- */
 public class MessagePaginator implements Iterator<List<Message>> {
     private final String auth;
     private final String thread_id;
     private String cursor;
     private boolean hasMore = true;
 
-    /**
-     * Internal constructor for MessagePaginator.
-     *
-     * @param auth     The authentication token.
-     * @param threadId The unique identifier of the DM thread.
-     * @param cursor   The initial pagination cursor.
-     */
     public MessagePaginator(String auth, String threadId, String cursor) {
         this.auth = auth;
         this.thread_id = threadId;
         this.cursor = cursor;
     }
 
-    /**
-     * Checks if there are more messages available in the thread's history.
-     *
-     * @return {@code true} if another page can be fetched, {@code false} otherwise.
-     */
     @Override
     public boolean hasNext() {
         return hasMore;
     }
 
-    /**
-     * Fetches the next page of messages (older than the current cursor).
-     *
-     * @return A list of {@link Message} objects for the current page.
-     * @throws NoSuchElementException If no more pages are available.
-     * @throws RuntimeException If an {@link InstagramException} occurs during the API call.
-     */
     @Override
     public List<Message> next() {
         if (!hasNext()) {

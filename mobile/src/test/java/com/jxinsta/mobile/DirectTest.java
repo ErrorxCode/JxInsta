@@ -27,7 +27,7 @@ public class DirectTest {
         assertNotNull(inbox.threads);
         System.out.println("Inbox total threads: " + inbox.totalThreads);
         if (!inbox.threads.isEmpty()) {
-            System.out.println("First thread recipient: " + inbox.threads.get(0).recipient);
+            System.out.println("First thread recipient: " + inbox.threads.getFirst().recipient);
         }
     }
 
@@ -66,7 +66,7 @@ public class DirectTest {
     void testMarkSeen() throws InstagramException {
         Inbox inbox = insta.getDirectInbox(1, 1);
         if (!inbox.threads.isEmpty()) {
-            Thread thread = inbox.threads.get(0);
+            Thread thread = inbox.threads.getFirst();
             assertDoesNotThrow(thread::markSeen);
             System.out.println("Marked thread as seen: " + thread.id);
         }

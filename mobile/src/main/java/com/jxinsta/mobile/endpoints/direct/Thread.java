@@ -7,101 +7,117 @@ import com.jxinsta.mobile.utils.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import port.org.json.JSONArray;
 import port.org.json.JSONObject;
 
-/**
- * Represents a direct message thread on Instagram.
- * A thread can be a one-on-one conversation or a group chat.
- */
 public class Thread {
     private final String auth;
-    /** The unique identifier of the thread. */
     public final String id;
-    /** The display title of the thread. */
-    public final String title;
-    /** Indicates if the thread is a group chat. */
-    public final boolean isGroup;
-    /** The list of messages currently loaded in this thread. */
-    public final List<Message> messages;
-    /** Information about the group, if this is a group thread. */
-    public final Group group;
+    public String recipient;
+    public long recipientId;
+    public String displayPicture;
+    public final List<String> messages = new ArrayList<>();
+    public String oldestCursor;
+    public String lastItemId;
 
-    /**
-     * Internal constructor for Thread.
-     *
-     * @param auth       The authentication token.
-     * @param threadJson The JSON object containing thread data.
-     */
-    public Thread(String auth, JSONObject threadJson) {
+    public Thread(String auth, JSONObject thread) {
         this.auth = auth;
-        this.id = threadJson.getString("thread_id");
-        this.title = threadJson.optString("thread_title");
-        this.isGroup = threadJson.optBoolean("is_group");
-        this.messages = new ArrayList<>();
-        
-        JSONArray items = threadJson.optJSONArray("items");
-        if (items != null) {
-            for (int i = 0; i < items.length(); i++) {
-                this.messages.add(new Message(auth, items.getJSONObject(i), id));
+        this.id = thread.optString("thread_id");
+        this.oldestCursor = thread.optString("oldest_cursor");
+
+        var users = thread.optJSONArray("users");
+        if (users != null && !users.isEmpty()) {
+            var user = users.getJSONObject(0);
+            recipient = user.getString("username");
+            recipientId = user.optLong("pk");
+            displayPicture = user.optString("profile_pic_url_hd");
+        }
+
+        JSONArray itemsArray = thread.optJSONArray("items");
+        if (itemsArray != null && !itemsArray.isEmpty()) {
+            lastItemId = itemsArray.getJSONObject(0).optString("item_id");
+            for (int i = 0; i < itemsArray.length(); i++) {
+                JSONObject itemJson = itemsArray.getJSONObject(i);
+                messages.add(itemJson.optString("text"));
             }
         }
+    }
 
-        if (isGroup) {
-            this.group = new Group(auth,threadJson);
-        } else {
-            this.group = null;
+    public Thread(String auth, String id) {
+        this.auth = auth;
+        this.id = id;
+    }
+
+
+    public void sendMessage(@NotNull String message) throws InstagramException {
+        Map<String, Object> body = new HashMap<>();
+        body.put("action", "send_item");
+        body.put("is_x_transport_forward", "false");
+        body.put("is_shh_mode", "0");
+        body.put("send_silently", "false");
+        body.put("recipient_users", recipientId == 0 ? "[[]]" : "[[" + recipientId + "]]");
+        body.put("send_attribution", "inbox");
+        body.put("client_context", UUID.randomUUID().toString());
+        body.put("text", message);
+        body.put("thread_ids", "[\"" + id + "\"]");
+
+        Utils.post(Constants.Endpoints.SEND_MESSAGE, auth, Utils.genSignedBody(body));
+    }
+
+    public void sendImage(@NotNull InputStream inputStream, @NotNull String caption) throws InstagramException {
+        try {
+            String uploadId = Utils.uploadPicture(inputStream, auth);
+            Map<String, Object> body = new HashMap<>();
+            body.put("action", "send_item");
+            body.put("is_x_transport_forward", "false");
+            body.put("recipient_users", recipientId == 0 ? "[[]]" : "[[" + recipientId + "]]");
+            body.put("send_attribution", "inbox");
+            body.put("attachment_fbid", uploadId);
+            body.put("allow_full_aspect_ratio", "true");
+            body.put("thread_ids", "[\"" + id + "\"]");
+            body.put("text", caption);
+
+            Utils.post(Constants.Endpoints.SEND_PHOTO, auth, Utils.genSignedBody(body));
+        } catch (IOException e) {
+            throw new InstagramException(e.getMessage(), InstagramException.Reasons.IO);
         }
     }
 
-    /**
-     * Sends a text message to this thread.
-     *
-     * @param text The message content.
-     * @throws InstagramException If the API returns an error.
-     */
-    public void sendMessage(@NotNull String text) throws InstagramException {
-        var params = new HashMap<String,Object>();
-        params.put("text", text);
-        params.put("thread_ids", "[" + id + "]");
-        params.put("action", "send_item");
-        params.put("client_context", Utils.genClientContext());
-        Utils.post(Constants.Endpoints.DM_SEND, auth, Utils.genSignedBody(params));
+    public MessagePaginator getMessages() {
+        return new MessagePaginator(auth, id, oldestCursor);
     }
 
-    /**
-     * Marks the thread as seen.
-     *
-     * @throws InstagramException If the API returns an error.
-     */
-    public void markAsSeen() throws InstagramException {
-        var params = new HashMap<String,Object>();
-        params.put("thread_id", id);
-        params.put("action", "mark_as_seen");
-        Utils.post(Constants.Endpoints.DM_SEEN, auth, Utils.genSignedBody(params));
+    public void delete() throws InstagramException {
+        Map<String, Object> body = new HashMap<>();
+        body.put("should_move_future_requests_to_spam", "false");
+        Utils.post(Constants.Endpoints.deleteThread(id), auth, Utils.genSignedBody(body));
     }
 
-    /**
-     * Leaves the thread (only for group chats).
-     *
-     * @throws InstagramException If the API returns an error.
-     */
-    public void leave() throws InstagramException {
-        Utils.post(Constants.Endpoints.DM_LEAVE, auth, Map.of("thread_id", id));
+    public void markSeen() throws InstagramException {
+        if (lastItemId != null) {
+            Utils.post(Constants.Endpoints.markSeen(this.id, lastItemId), auth, null);
+        }
     }
 
-    /**
-     * Returns a paginator to fetch older messages in this thread.
-     *
-     * @return A {@link MessagePaginator}.
-     */
-    public MessagePaginator getMessagePaginator() {
-        var lastMessageId = messages.isEmpty() ? null : messages.get(messages.size() - 1).id;
-        return new MessagePaginator(auth, id, lastMessageId);
+    @Override
+    public String toString() {
+        return "Thread{" +
+                "auth='" + auth + '\'' +
+                ", id='" + id + '\'' +
+                ", recipient='" + recipient + '\'' +
+                ", recipientId=" + recipientId +
+                ", displayPicture='" + displayPicture + '\'' +
+                ", messages=" + messages +
+                ", oldestCursor='" + oldestCursor + '\'' +
+                ", lastItemId='" + lastItemId + '\'' +
+                '}';
     }
 }

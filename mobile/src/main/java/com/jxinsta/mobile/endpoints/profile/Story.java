@@ -11,36 +11,17 @@ import java.util.Map;
 
 import port.org.json.JSONObject;
 
-/**
- * Represents an Instagram story or highlight item in the mobile API context.
- * Provides metadata about the story and methods to like or dislike it.
- */
 public class Story implements Likable {
-    /** The PK (id) of the user who posted the story. */
     public String userID;
-    /** The username of the user who posted the story. */
     public String username;
-    /** The unique identifier of the story item. */
     public String storyId;
-    /** The URL to download the story media (image or video). */
     public String download_url;
-    /** Whether the story is a video. */
     public boolean is_video;
-    /** The number of views the story has received. -1 if unknown. */
     public int views = -1;
-    /** The duration of the video story in seconds. -1 if not a video. */
     public int duration = -1;
-    /** The number of likes the story has received. -1 if unknown. */
     public int likes = -1;
-    /** The authentication token. */
     public final String auth;
 
-    /**
-     * Internal constructor for Story.
-     *
-     * @param storyItem The JSON object containing story item data.
-     * @param auth      The authentication token.
-     */
     public Story(@NotNull JSONObject storyItem, String auth) {
         this.auth = auth;
         JSONObject user = storyItem.optJSONObject("user");
@@ -49,7 +30,7 @@ public class Story implements Likable {
             this.username = user.optString("username");
         }
 
-        this.storyId = storyItem.optString("id");
+        this.storyId = storyId = storyItem.optString("id");
         this.is_video = storyItem.optInt("media_type") == 2;
 
         if (storyItem.has("video_duration")) {
@@ -86,22 +67,12 @@ public class Story implements Likable {
                 '}';
     }
 
-    /**
-     * Likes this story.
-     *
-     * @throws InstagramException If the API returns an error.
-     */
     @Override
     public void like() throws InstagramException {
         var body = Utils.genSignedBody(Map.of("media_id", storyId));
         Utils.post(Constants.Endpoints.STORY_LIKE, auth, body);
     }
 
-    /**
-     * Removes the like from this story.
-     *
-     * @throws InstagramException If the API returns an error.
-     */
     public void dislike() throws InstagramException {
         var body = Utils.genSignedBody(Map.of("media_id", storyId));
         Utils.post(Constants.Endpoints.STORY_UNLIKE, auth, body);

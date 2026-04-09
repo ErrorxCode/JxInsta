@@ -9,7 +9,7 @@ java {
 
 dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-    implementation 'com.github.ErrorxCode:JSON-java-port:20250517'
+    implementation project(':JsonPort')
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

@@ -15,41 +15,20 @@ import java.util.NoSuchElementException;
 import port.org.json.JSONArray;
 import port.org.json.JSONObject;
 
-/**
- * Paginator for fetching the home feed posts of the logged-in user in the mobile API context.
- * Implements {@link Iterator} to provide pages of {@link Post} objects.
- */
 public class FeedPaginator implements Iterator<List<Post>> {
     private final String auth;
     private String nextCursor;
     private boolean hasMore = true;
 
-    /**
-     * Internal constructor for FeedPaginator.
-     *
-     * @param auth The authentication token.
-     */
     public FeedPaginator(String auth) {
         this.auth = auth;
     }
 
-    /**
-     * Checks if there are more pages available in the feed.
-     *
-     * @return {@code true} if another page can be fetched, {@code false} otherwise.
-     */
     @Override
     public boolean hasNext() {
         return hasMore;
     }
 
-    /**
-     * Fetches the next page of feed posts.
-     *
-     * @return A list of {@link Post} objects for the current page.
-     * @throws NoSuchElementException If no more pages are available.
-     * @throws RuntimeException If an {@link InstagramException} occurs during the API call.
-     */
     @Override
     public List<Post> next() {
         if (!hasNext()) {

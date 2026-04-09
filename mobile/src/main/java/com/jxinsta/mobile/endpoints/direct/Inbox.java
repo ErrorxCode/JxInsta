@@ -11,27 +11,13 @@ import java.util.List;
 import port.org.json.JSONArray;
 import port.org.json.JSONObject;
 
-/**
- * Represents the Direct Message inbox for an Instagram account.
- * This class provides access to existing threads and users in the inbox, 
- * as well as methods to fetch message requests or specific threads.
- */
 public class Inbox {
     private final String auth;
-    /** The total number of threads currently loaded in the inbox. */
     public final int totalThreads;
-    /** The list of {@link Thread} objects in the inbox. */
     public final List<Thread> threads;
-    /** The list of usernames involved in the inbox threads. */
     public final List<String> users;
 
 
-    /**
-     * Internal constructor for Inbox.
-     *
-     * @param auth The authentication token.
-     * @param json The JSON object containing inbox data.
-     */
     public Inbox(String auth, JSONObject json) {
         this.auth = auth;
 
@@ -58,25 +44,11 @@ public class Inbox {
         }
     }
 
-    /**
-     * Fetches the list of users who are currently online.
-     * 
-     * @return A list of usernames.
-     * @throws InstagramException If the API returns an error.
-     */
     private List<String> getOnlineUsers() throws InstagramException {
         return null;
         // Unimplemented
     }
 
-    /**
-     * Fetches pending message requests.
-     *
-     * @param maxThreads  The maximum number of threads to fetch.
-     * @param maxMessages The maximum number of messages per thread to fetch.
-     * @return A list of {@link Thread} objects representing the requests.
-     * @throws InstagramException If the API returns an error.
-     */
     public List<Thread> getRequests(int maxThreads,int maxMessages) throws InstagramException {
         var params = new HashMap<String,Object>();
         params.put("visual_message_return_type", "all");
@@ -92,14 +64,6 @@ public class Inbox {
         return list;
     }
 
-    /**
-     * Fetches a specific thread by its ID.
-     *
-     * @param id          The unique identifier of the thread.
-     * @param maxMessage The maximum number of recent messages to fetch in the thread.
-     * @return A {@link Thread} instance.
-     * @throws InstagramException If the API returns an error.
-     */
     public Thread getThread(String id,int maxMessage) throws InstagramException {
         var params = new HashMap<String,Object>();
         params.put("visual_message_return_type", "all");
