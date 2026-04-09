@@ -23,6 +23,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SDKs & Lib"
-include ':JxInsta:web'
-include ':JxInsta:mobile'
+rootProject.name = "JxInsta"
+include ':web'
+include ':mobile'
