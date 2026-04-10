@@ -26,7 +26,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 This project and everyone participating in it is governed by the
 [JxInsta Code of Conduct](https://github.com/ErrorxCode/JxInsta/blob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behaviour
-to <github@imrahil.cf>.
+to <x0.khanrahil@gmail.com>.
 
 
 ## I Have a Question
@@ -83,12 +83,6 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 
 <!-- omit in toc -->
 #### How Do I Submit a Good Bug Report?
-
-> You must never report security related issues, vulnerabilities or bugs including sensitive information to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to <bugs.easyinsta@imrahil.cf>.
-<!-- You may add a PGP key to allow the messages to be sent encrypted as well. -->
-
-We use GitHub issues to track bugs and errors. If you run into an issue with the project:
-
 - Open an [Issue](https://github.com/ErrorxCode/JxInsta/issues/new). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
 - Explain the behavior you would expect and the actual behavior.
 - Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
@@ -97,7 +91,7 @@ We use GitHub issues to track bugs and errors. If you run into an issue with the
 Once it's filed:
 
 - The project team will label the issue accordingly.
-- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
+- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `missing-info`. Bugs with the `missing-info` tag will not be addressed until they are reproduced.
 - If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
 
 <!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
@@ -105,7 +99,7 @@ Once it's filed:
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for EasyInsta, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestions and find related suggestions.
+This section guides you through submitting an enhancement suggestion for JxInsta, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestions and find related suggestions.
 
 <!-- omit in toc -->
 #### Before Submitting an Enhancement
@@ -136,86 +130,8 @@ So before getting stared....what we need is the reverse enggineered endpoints of
 ## Styleguides
 Follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html), see other bits of the code base, and write consistent code.
 
-#### Import Order
-All the static imports should be at the top without any new lines between them in this order:-
-- java
-- javax
-- internal
-- external
-
-Without any empty lines in between.
-
-After all the static imports there should be a line break.
-And then all other imports in this order:-
-- java
-- javax
-- internal
-- external lib 1
-- external lib 2
-- ...
-
-After each group, there should be an empty line.
-
-Example:-
-```java
-import static java. lang.Math.*; // All the java static imports
-import static io.github.taz03.jia.utils.UrlUtils.*; // All the internal static imports
-import static org. junit. Jupiter. api.Assertions.assertEquals; // All the external static imports
-
-import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-
-import javax. crypto.Cipher;
-import java.crypto.spec.GCMParameterSpec;
-import java.crypto.spec.SecretKeySpec;
-
-import io.github.taz03.jia.requests.InstagramRequest;
-import io.github.taz03.jia.requests.accounts.LoginRequest;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.slf4j.Logger;
-```
-
-#### Docs
-```java
-    /**
-     * Description of the method.
-     *
-     * @param param1    Description of param1
-     * @param param2    Description of param1
-     * @param longParam Description of longParam
-     */
-```
-
-#### Curly Braces
-If the logic is in single don't use curly braces.
-```java
-❌ Wrong
-if (condition) {
-    // Single line body
-} else {
-    // Single line body
-}
-```
-```java
-✅ Correct
-if (condition) ...
-else ...
-```
-```java
-✅ Correct
-if (condition)
-    ...
-else
-    ...
-```
 
 ## Summerizing
-
 You can contribute to this project in either way:-
-- By reverse engineering/discovering API endpoints of Instagram and then adding them to OpanAPI spec.
+- By reverse engineering/discovering API endpoints of Instagram and then adding them to OpenAPI spec.
 - By implementing the already discovered endpoints in the library and adding them to the respected class.
