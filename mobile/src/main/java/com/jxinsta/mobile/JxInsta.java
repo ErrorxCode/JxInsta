@@ -3,7 +3,6 @@ package com.jxinsta.mobile;
 
 import com.jxinsta.mobile.endpoints.direct.Inbox;
 import com.jxinsta.mobile.endpoints.post.Post;
-import com.jxinsta.mobile.endpoints.post.PostData;
 import com.jxinsta.mobile.endpoints.profile.Profile;
 import com.jxinsta.mobile.endpoints.profile.ProfileData;
 import com.jxinsta.mobile.endpoints.profile.Story;
@@ -24,8 +23,8 @@ import java.util.Map;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.Request;
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+
+import android.org.json.JSONObject;
 
 /**
  * Main interface for the JxInsta Mobile library.

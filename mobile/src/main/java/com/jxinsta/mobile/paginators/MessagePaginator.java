@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 public class MessagePaginator implements Iterator<List<Message>> {
     private final String auth;

@@ -1,7 +1,7 @@
 package com.jxinsta.web;
 
 import org.jetbrains.annotations.NotNull;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class InstagramException extends Exception {
     private final Reasons reason;

@@ -2,10 +2,8 @@ package com.jxinsta.web.paginators;
 
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
-import com.jxinsta.web.JxInsta;
 import com.jxinsta.web.Utils;
 import com.jxinsta.web.endpoints.post.Post;
-import com.jxinsta.web.endpoints.post.PostData;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -15,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * Paginator for fetching posts from a specific user's profile.

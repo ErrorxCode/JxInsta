@@ -2,18 +2,15 @@ package com.jxinsta.web.endpoints.profile;
 
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
-import com.jxinsta.web.JxInsta;
 import com.jxinsta.web.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONException;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 /**
  * Represents an Instagram story or highlight item.

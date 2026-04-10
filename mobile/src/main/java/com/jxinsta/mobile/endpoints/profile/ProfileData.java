@@ -1,6 +1,6 @@
 package com.jxinsta.mobile.endpoints.profile;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class ProfileData {
     public String username;

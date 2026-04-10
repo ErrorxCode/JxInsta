@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 public class Thread {
     private final String auth;

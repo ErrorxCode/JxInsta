@@ -2,13 +2,12 @@ package com.jxinsta.web.endpoints.post;
 
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
-import com.jxinsta.web.JxInsta;
 import com.jxinsta.web.Utils;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * Represents a comment on an Instagram post. 

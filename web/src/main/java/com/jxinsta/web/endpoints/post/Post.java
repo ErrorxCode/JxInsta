@@ -2,21 +2,16 @@ package com.jxinsta.web.endpoints.post;
 
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
-import com.jxinsta.web.JxInsta;
 import com.jxinsta.web.Utils;
 import com.jxinsta.web.paginators.CommentPaginator;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import okhttp3.FormBody;
-import okhttp3.Headers;
-import okhttp3.Request;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * Represents an Instagram post with interactive capabilities.

@@ -1,6 +1,6 @@
 package com.jxinsta.mobile.endpoints.post;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class PostData {
     public Post.MEDIA_TYPE mediaType;

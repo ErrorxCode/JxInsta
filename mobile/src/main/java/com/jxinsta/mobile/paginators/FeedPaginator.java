@@ -2,7 +2,6 @@ package com.jxinsta.mobile.paginators;
 
 import com.jxinsta.mobile.InstagramException;
 import com.jxinsta.mobile.endpoints.post.Post;
-import com.jxinsta.mobile.endpoints.post.PostData;
 import com.jxinsta.mobile.utils.Utils;
 
 import java.util.ArrayList;
@@ -12,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 public class FeedPaginator implements Iterator<List<Post>> {
     private final String auth;

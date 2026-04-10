@@ -1,7 +1,7 @@
 package com.jxinsta.web.endpoints.post;
 
 import com.jxinsta.web.Constants;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * A data class representing basic information about an Instagram post.

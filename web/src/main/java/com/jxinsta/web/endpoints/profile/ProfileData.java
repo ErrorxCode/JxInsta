@@ -1,11 +1,6 @@
 package com.jxinsta.web.endpoints.profile;
 
-import com.jxinsta.web.endpoints.post.Post;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * A data class representing basic information about an Instagram profile.

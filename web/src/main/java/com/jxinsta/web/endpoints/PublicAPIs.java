@@ -3,7 +3,6 @@ package com.jxinsta.web.endpoints;
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
 import com.jxinsta.web.Utils;
-import com.jxinsta.web.endpoints.post.Post;
 import com.jxinsta.web.endpoints.post.PostData;
 import com.jxinsta.web.endpoints.profile.ProfileData;
 import com.jxinsta.web.paginators.HashtagPaginator;
@@ -11,17 +10,14 @@ import com.jxinsta.web.paginators.HashtagPaginator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.Request;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * This class contains all the public APIs available in the library. 

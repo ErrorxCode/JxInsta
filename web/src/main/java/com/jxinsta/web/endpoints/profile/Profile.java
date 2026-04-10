@@ -2,7 +2,6 @@ package com.jxinsta.web.endpoints.profile;
 
 import com.jxinsta.web.Constants;
 import com.jxinsta.web.InstagramException;
-import com.jxinsta.web.JxInsta;
 import com.jxinsta.web.Utils;
 import com.jxinsta.web.paginators.PostPaginator;
 import com.jxinsta.web.paginators.ProfilePaginator;
@@ -13,8 +12,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 /**
  * This class represents the profile of an Instagram user. 

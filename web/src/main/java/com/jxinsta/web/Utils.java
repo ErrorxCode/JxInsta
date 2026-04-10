@@ -15,8 +15,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import port.org.json.JSONException;
-import port.org.json.JSONObject;
+import android.org.json.JSONException;
+import android.org.json.JSONObject;
 
 /**
  * Utility class containing helper methods for network requests, encoding, and common Instagram API operations.

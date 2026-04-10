@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * Paginator for fetching the home feed posts of the logged-in user.

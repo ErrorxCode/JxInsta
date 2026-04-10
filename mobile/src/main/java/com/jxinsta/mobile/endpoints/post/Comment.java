@@ -1,7 +1,6 @@
 package com.jxinsta.mobile.endpoints.post;
 
 import com.jxinsta.mobile.InstagramException;
-import com.jxinsta.mobile.JxInsta;
 import com.jxinsta.mobile.utils.Constants;
 import com.jxinsta.mobile.utils.Utils;
 import com.jxinsta.mobile.utils.Likable;
@@ -11,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class Comment implements Likable {
     public final String id;

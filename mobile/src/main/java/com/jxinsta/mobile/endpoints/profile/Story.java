@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class Story implements Likable {
     public String userID;

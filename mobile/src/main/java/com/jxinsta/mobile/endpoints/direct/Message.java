@@ -1,7 +1,7 @@
 package com.jxinsta.mobile.endpoints.direct;
 
-import port.org.json.JSONArray;
-import port.org.json.JSONObject;
+import android.org.json.JSONArray;
+import android.org.json.JSONObject;
 
 public class Message {
     private final String id;

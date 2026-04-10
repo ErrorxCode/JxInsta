@@ -4,7 +4,6 @@ import com.jxinsta.web.endpoints.post.Post;
 import com.jxinsta.web.endpoints.profile.Profile;
 import com.jxinsta.web.endpoints.profile.Story;
 import com.jxinsta.web.paginators.FeedPaginator;
-import com.jxinsta.web.paginators.PostPaginator;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +19,7 @@ import java.util.Map;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.Request;
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * This is the main interface of the library. You can perform account level actions using this class.

@@ -2,7 +2,7 @@ package com.jxinsta.mobile;
 
 import org.jetbrains.annotations.NotNull;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 /**
  * Exception class for errors returned by the Instagram mobile API or library-specific failures.

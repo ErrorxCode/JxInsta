@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import port.org.json.JSONObject;
+import android.org.json.JSONObject;
 
 public class Profile extends ProfileData {
     private final String auth;
