@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="/JxInsta.png" alt="Markdownify" width="250">
+  <img src="/JxInsta banner.png" alt="Markdownify" width="600">
   <br>
   JxInsta
   <br>
@@ -21,8 +21,10 @@
   <img src="https://img.shields.io/badge/Written%20In-Java-cyan?style=flat-square">
 </p>
 
+<p align="center">
+	<img src="/jxinsta-code.png" alt="Markdownify" width="800">
+</p>
 
-<img src="https://i.pinimg.com/originals/65/47/b7/6547b7cebfd77d52070ec6a0319bac84.png" alt="Markdownify" width="1000">
 
 An Object Oriented Java library of Instagram Private API. This library is built as a replacement for old **instagram4j** since it is too old and is no longer maintained. If you still want to use **instagram4j** (as it has quite more features as of now), you can check out [EasyInsta](https://github.com/ErrorxCode/EasyInsta/) - A Easy2Use Instagram4j wrapper.
 
