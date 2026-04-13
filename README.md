@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="/JxInsta banner.png" alt="Markdownify" width="600">
+  <img src="/jxinsta.png" alt="Markdownify" width="250">
   <br>
   JxInsta
   <br>
