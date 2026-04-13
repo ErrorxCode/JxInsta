@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-	<img src="/jxinsta-code.png" alt="Markdownify" width="800">
+	<img src="/jxinsta-code.png" alt="Markdownify" width="750">
 </p>
 
 
