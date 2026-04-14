@@ -68,8 +68,8 @@ Step 2. Add the dependency
 
 ```groovy
 	dependencies {
-	        implementation 'com.github.Errorxcode.jxinsta:mobile:a3f3df6c39'   // If you want to use mobile API
-          implementation 'com.github.Errorxcode.jxinsta:web:a3f3df6c39'   // If you want to use web API
+	        implementation 'com.github.Errorxcode.jxinsta:mobile:2.0'   // If you want to use mobile API
+          implementation 'com.github.Errorxcode.jxinsta:web:2.0'   // If you want to use web API
 	}
 ```
 
@@ -89,7 +89,7 @@ if you want `Mobile` API :
 	<dependency>
 	    <groupId>com.github.Errorxcode.jxinsta</groupId>
 	    <artifactId>mobile</artifactId>
-	    <version>a3f3df6c39</version>
+	    <version>2.0</version>
 	</dependency>
 ```
 or if you want `Web` API :
@@ -97,10 +97,10 @@ or if you want `Web` API :
 	<dependency>
 	    <groupId>com.github.Errorxcode.jxinsta</groupId>
 	    <artifactId>web</artifactId>
-	    <version>a3f3df6c39</version>
+	    <version>2.0</version>
 	</dependency>
 ```
-
+[![](https://jitpack.io/v/Errorxcode/JxInsta.svg)](https://jitpack.io/#Errorxcode/JxInsta)
 
 
 ## Acknowledgements
